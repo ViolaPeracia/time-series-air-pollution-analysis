@@ -1,0 +1,2613 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lộ trình đồ án môn học INFO3020: Phân tích mức độ ô nhiễm không khí theo thời gian (Time-Series Air Pollution Analysis). 15 tuần nghiên cứu khoa học dữ liệu chuẩn mực.">
+  <title>INFO3020 - Time-Series Air Pollution Analysis Roadmap</title>
+  
+  <!-- Relative stylesheet for GitHub Pages compatibility -->
+  <link rel="stylesheet" href="./styles.css">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+</head>
+<body>
+  <!-- Reading / Roadmap Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar" role="progressbar" aria-label="Roadmap reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Background decorative pattern -->
+  <div class="bg-grid-pattern" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="header-brand" aria-label="INFO3020 Project Home">
+        <span class="brand-badge">INFO3020</span>
+        <div class="brand-title">
+          <span class="brand-title-main">Air Pollution Analysis</span>
+          <span class="brand-title-sub">Time-Series Data Science</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="header-nav" id="desktopNav" aria-label="Main Navigation">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#pipeline" class="nav-link">Pipeline</a>
+        <a href="#roadmap" class="nav-link">Roadmap</a>
+        <a href="#data-plan" class="nav-link">Data</a>
+        <a href="#analysis" class="nav-link">Analysis</a>
+        <a href="#modeling" class="nav-link">Modeling</a>
+        <a href="#ethics" class="nav-link">Ethics</a>
+        <a href="#repository" class="nav-link">Repository</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <button class="search-toggle-btn" id="searchOpenBtn" aria-label="Open search modal (Shortcut: Ctrl+K)" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle light/dark theme" title="Toggle Theme">
+          <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation" hidden>
+    <a href="#overview" class="mobile-nav-link">Overview <span>→</span></a>
+    <a href="#pipeline" class="mobile-nav-link">Pipeline <span>→</span></a>
+    <a href="#roadmap" class="mobile-nav-link">15-Week Roadmap <span>→</span></a>
+    <a href="#skill-mapping" class="mobile-nav-link">Skill Mapping <span>→</span></a>
+    <a href="#data-plan" class="mobile-nav-link">Data Plan <span>→</span></a>
+    <a href="#cleaning" class="mobile-nav-link">Quality & Cleaning <span>→</span></a>
+    <a href="#analysis" class="mobile-nav-link">Time-Series & EDA <span>→</span></a>
+    <a href="#inference" class="mobile-nav-link">Inference <span>→</span></a>
+    <a href="#modeling" class="mobile-nav-link">Regression & Classification <span>→</span></a>
+    <a href="#visualizations" class="mobile-nav-link">Visualization Plan <span>→</span></a>
+    <a href="#ethics" class="mobile-nav-link">Ethics & Bias <span>→</span></a>
+    <a href="#repository" class="mobile-nav-link">Repository <span>→</span></a>
+    <a href="#milestones" class="mobile-nav-link">Milestones <span>→</span></a>
+  </div>
+
+  <!-- Search Modal Overlay -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Roadmap Search" hidden>
+    <div class="search-container">
+      <div class="search-header">
+        <div class="search-input-wrapper">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" class="search-input" id="searchInput" placeholder="Tìm kiếm theo từ khóa (e.g. PM2.5, Mann-Whitney, LINE, Week 10, OpenAQ, VIF)..." autocomplete="off" spellcheck="false">
+        </div>
+        <button class="search-close-btn" id="searchCloseBtn" aria-label="Close search (Esc)">✕</button>
+      </div>
+
+      <div class="search-hints">
+        <span>Gợi ý tìm nhanh:</span>
+        <button type="button" class="search-tag" data-query="PM2.5">PM2.5</button>
+        <button type="button" class="search-tag" data-query="Mann-Whitney">Mann-Whitney</button>
+        <button type="button" class="search-tag" data-query="Regression">Regression</button>
+        <button type="button" class="search-tag" data-query="Pipeline">Pipeline</button>
+        <button type="button" class="search-tag" data-query="OpenAQ">OpenAQ</button>
+        <button type="button" class="search-tag" data-query="Open-Meteo">Open-Meteo</button>
+        <button type="button" class="search-tag" data-query="Bias">Bias</button>
+        <button type="button" class="search-tag" data-query="Week 10">Week 10</button>
+      </div>
+
+      <div class="search-results" id="searchResults" role="region" aria-live="polite">
+        <div class="search-empty">Nhập từ khóa tìm kiếm để tra cứu nhanh các tuần, phương pháp và mục tiêu đồ án.</div>
+      </div>
+    </div>
+  </div>
+
+  <main id="mainContent">
+    <!-- =========================================================================
+         SECTION 1 — HERO
+         ========================================================================= -->
+    <section class="hero-section" id="hero" aria-labelledby="heroMainTitle">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-meta-badge">
+            <span class="dot"></span>
+            <span>INFO3020 &bull; INTRODUCTION TO DATA SCIENCE</span>
+          </div>
+
+          <h1 class="hero-title-en" id="heroMainTitle">Time-Series Air Pollution Analysis</h1>
+          <div class="hero-title-vn">Phân tích mức độ ô nhiễm không khí theo thời gian</div>
+
+          <p class="hero-description">
+            Đồ án khoa học dữ liệu chuẩn mực bám sát 15 tuần học: phân tích chuỗi thời gian nồng độ bụi mịn PM2.5, tích hợp các biến khí tượng bề mặt từ trạm đo tham chiếu, kiểm định suy luận thống kê phi tham số, mô hình hóa hồi quy OLS chẩn đoán LINE, phân loại cảnh báo sớm ô nhiễm và kiểm toán định kiến đạo đức dữ liệu.
+          </p>
+
+          <!-- Compact Metadata -->
+          <div class="hero-metadata-grid" aria-label="Thông số tổng quan đồ án">
+            <div class="metadata-pill">
+              <span class="metadata-pill-label">Duration:</span> 15 Weeks
+            </div>
+            <div class="metadata-pill">
+              <span class="metadata-pill-label">Curriculum:</span> 5 Chapters
+            </div>
+            <div class="metadata-pill">
+              <span class="metadata-pill-label">Explanatory Charts:</span> 7 Planned
+            </div>
+            <div class="metadata-pill">
+              <span class="metadata-pill-label">Time-Series Scope:</span> 2-Year Hourly (2023–2024)
+            </div>
+            <div class="metadata-pill">
+              <span class="metadata-pill-label">Core Tech:</span> Python + Pandas + Scikit-Learn
+            </div>
+          </div>
+
+          <!-- Hero CTA Actions -->
+          <div class="hero-cta-group">
+            <a href="#roadmap" class="btn btn-primary" id="exploreRoadmapBtn">
+              <span>Explore Roadmap</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#pipeline" class="btn btn-secondary">
+              <span>View Research Pipeline</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 2 — PROJECT OVERVIEW
+         ========================================================================= -->
+    <section class="section" id="overview" aria-labelledby="overviewTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Academic Scope</div>
+          <h2 class="section-title" id="overviewTitle">Project Overview</h2>
+          <p class="section-desc">Phạm vi học thuật, câu hỏi nghiên cứu cốt lõi và các kết quả bàn giao dự kiến của đồ án môn học INFO3020.</p>
+        </div>
+
+        <div class="overview-grid">
+          <!-- Main Research Question -->
+          <div class="research-question-card">
+            <div class="rq-label">Main Research Question (Câu hỏi nghiên cứu cốt lõi)</div>
+            <blockquote class="rq-quote">
+              &ldquo;Nồng độ bụi mịn PM2.5 biến động theo những quy luật chu kỳ thời gian nào, chịu sự liên hệ ra sao bởi các yếu tố khí tượng bề mặt, và làm thế nào để xây dựng mô hình cảnh báo sớm các đợt ô nhiễm vượt ngưỡng an toàn dựa trên dữ liệu chuỗi thời gian?&rdquo;
+            </blockquote>
+          </div>
+
+          <!-- 4 Supporting Sub-Questions -->
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--text-primary);">4 Supporting Sub-Questions (Câu hỏi hỗ trợ chuyên sâu)</h3>
+            <div class="sub-questions-grid">
+              <div class="sq-card">
+                <div class="sq-card-header">
+                  <span class="sq-id">SQ1</span>
+                  <span class="sq-topic">Distribution & Metrics</span>
+                </div>
+                <div class="sq-body">
+                  Phân phối của nồng độ PM2.5 có hình dạng lệch (skewness) và đuôi dày (heavy tails) như thế nào? Cặp đại lượng nào (Mean/Std hay Median/IQR) phản ánh trung thực nhất mức độ phơi nhiễm điển hình của người dân?
+                </div>
+              </div>
+
+              <div class="sq-card">
+                <div class="sq-card-header">
+                  <span class="sq-id">SQ2</span>
+                  <span class="sq-topic">Cycles & Inference</span>
+                </div>
+                <div class="sq-body">
+                  Sự sụt giảm ô nhiễm vào ngày cuối tuần (do giảm lưu lượng giao thông) và sự gia tăng ô nhiễm vào mùa đông (do hiện tượng nghịch nhiệt) có đạt ý nghĩa thống kê ở mức &alpha; = 0.05 hay không?
+                </div>
+              </div>
+
+              <div class="sq-card">
+                <div class="sq-card-header">
+                  <span class="sq-id">SQ3</span>
+                  <span class="sq-topic">Association & LINE</span>
+                </div>
+                <div class="sq-body">
+                  Trong điều kiện kiểm soát các yếu tố khác không đổi (<em>ceteris paribus</em>), tốc độ gió và độ ẩm không khí liên hệ như thế nào với nồng độ bụi mịn? Có hiện tượng đa cộng tuyến giữa các biến thời tiết không?
+                </div>
+              </div>
+
+              <div class="sq-card">
+                <div class="sq-card-header">
+                  <span class="sq-id">SQ4</span>
+                  <span class="sq-topic">Alerts & Trade-offs</span>
+                </div>
+                <div class="sq-body">
+                  Khi xây dựng mô hình phân loại cảnh báo ngày ô nhiễm cao, sự đánh đổi giữa Precision và Recall được giải quyết thế nào để giảm thiểu rủi ro sức khỏe cộng đồng (hạn chế tối đa False Negative)?
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scope & Deliverables Cards -->
+          <div class="scope-summary-cards">
+            <div class="summary-card">
+              <h4 class="summary-card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                <span>Dataset Scope (Phạm vi dữ liệu)</span>
+              </h4>
+              <ul class="summary-list">
+                <li>Chuỗi thời gian đo theo giờ (hourly) liên tục trong 2 năm trọn vẹn (2023–2024).</li>
+                <li>Dữ liệu chất lượng không khí: Nồng độ PM2.5, PM10 từ trạm tham chiếu US Embassy qua OpenAQ REST API v3.</li>
+                <li>Dữ liệu khí tượng: Nhiệt độ, độ ẩm tương đối, tốc độ gió, hướng gió, lượng mưa, áp suất khí quyển từ Open-Meteo API (ERA5 Reanalysis).</li>
+                <li>Quy mô: &approx; 17.520 dòng quan trắc, lưu trữ tối ưu dưới định dạng Parquet.</li>
+              </ul>
+            </div>
+
+            <div class="summary-card">
+              <h4 class="summary-card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <span>Expected Outputs (Sản phẩm bàn giao)</span>
+              </h4>
+              <ul class="summary-list">
+                <li>1 Repository GitHub chuẩn mực, chạy mượt mà sau khi Restart Kernel & Run All.</li>
+                <li>1 Báo cáo Khám phá dữ liệu giữa kỳ (Midterm EDA Report) 8–10 trang PDF.</li>
+                <li>1 Báo cáo Đồ án tốt nghiệp môn học cuối kỳ (Final Capstone Report) cấu trúc SCQA.</li>
+                <li>7 biểu đồ Explanatory chuẩn mực in ấn (300 DPI) có tiêu đề dạng kết luận.</li>
+                <li>1 Datasheet for Dataset & 1 Model Card 1 trang theo chuẩn đạo đức Week 12.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 3 — RESEARCH PIPELINE
+         ========================================================================= -->
+    <section class="section" id="pipeline" aria-labelledby="pipelineTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Sequential Workflow</div>
+          <h2 class="section-title" id="pipelineTitle">Research Pipeline</h2>
+          <p class="section-desc">Quy trình khoa học dữ liệu tuần tự 8 giai đoạn từ thu thập dữ liệu thô đến bảo vệ trước hội đồng. Nhấp vào từng khối để xem chi tiết kỹ thuật và sản phẩm đầu ra.</p>
+        </div>
+
+        <div class="pipeline-container" id="pipelineStages">
+          <!-- Stage 1 -->
+          <div class="pipeline-stage is-active" data-stage="1">
+            <div class="pipeline-stage-header" tabindex="0" role="button" aria-expanded="true">
+              <div class="pipeline-stage-left">
+                <div class="pipeline-step-num">01</div>
+                <div class="pipeline-title-group">
+                  <div class="pipeline-title">DATA COLLECTION</div>
+                  <div class="pipeline-subtitle">Thu thập dữ liệu đa nguồn & lưu trữ bất biến</div>
+                </div>
+              </div>
+              <div class="pipeline-stage-right">
+                <span class="badge badge-subtle">Week 1–2</span>
+                <span class="pipeline-icon-toggle">▼</span>
+              </div>
+            </div>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-details-grid">
+                <div class="pipeline-detail-block">
+                  <h5>Công nghệ & Phương pháp</h5>
+                  <p>Python <code>requests</code>, REST API pagination, rate limit mitigation (<code>time.sleep</code>), Pandas 6 câu hỏi I/O, lưu JSON thô chỉ đọc tại <code>data/raw/</code>.</p>
+                </div>
+                <div class="pipeline-detail-block">
+                  <h5>Đầu ra trọng yếu</h5>
+                  <ul>
+                    <li><code>data/raw/openaq_raw.json</code> (PM2.5, PM10)</li>
+                    <li><code>data/raw/weather_raw.json</code> (T, RH, Wind, Rain, Pressure)</li>
+                    <li><code>docs/data_dictionary.md</code> (100% cột được định nghĩa)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector">↓</div>
+
+          <!-- Stage 2 -->
+          <div class="pipeline-stage" data-stage="2">
+            <div class="pipeline-stage-header" tabindex="0" role="button" aria-expanded="false">
+              <div class="pipeline-stage-left">
+                <div class="pipeline-step-num">02</div>
+                <div class="pipeline-title-group">
+                  <div class="pipeline-title">QUALITY AUDIT & CLEANING</div>
+                  <div class="pipeline-subtitle">Kiểm toán 6 chiều chất lượng & xử lý lỗi trạm đo</div>
+                </div>
+              </div>
+              <div class="pipeline-stage-right">
+                <span class="badge badge-subtle">Week 3–4</span>
+                <span class="pipeline-icon-toggle">▼</span>
+              </div>
+            </div>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-details-grid">
+                <div class="pipeline-detail-block">
+                  <h5>Công nghệ & Phương pháp</h5>
+                  <p>Audit hàm tự động, phân loại cơ chế khuyết Rubin (MCAR/MAR/MNAR), xử lý missing ngụy trang, lọc vi phạm vật lý PM2.5 &le; PM10, reindex chuỗi thời gian liên tục.</p>
+                </div>
+                <div class="pipeline-detail-block">
+                  <h5>Đầu ra trọng yếu</h5>
+                  <ul>
+                    <li>Hồ sơ chấm điểm 6 chiều chất lượng (Completeness, Accuracy, Consistency, Validity, Uniqueness, Timeliness)</li>
+                    <li><code>docs/cleaning_log.md</code> (Nhật ký làm sạch minh bạch)</li>
+                    <li>Bộ dữ liệu trung gian <code>data/interim/</code></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector">↓</div>
+
+          <!-- Stage 3 -->
+          <div class="pipeline-stage" data-stage="3">
+            <div class="pipeline-stage-header" tabindex="0" role="button" aria-expanded="false">
+              <div class="pipeline-stage-left">
+                <div class="pipeline-step-num">03</div>
+                <div class="pipeline-title-group">
+                  <div class="pipeline-title">TRANSFORMATION & INTEGRATION</div>
+                  <div class="pipeline-subtitle">Ghép nối timestamp không nổ dòng & đóng gói Pipeline</div>
+                </div>
+              </div>
+              <div class="pipeline-stage-right">
+                <span class="badge badge-subtle">Week 5</span>
+                <span class="pipeline-icon-toggle">▼</span>
+              </div>
+            </div>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-details-grid">
+                <div class="pipeline-detail-block">
+                  <h5>Công nghệ & Phương pháp</h5>
+                  <p>Inner join theo khóa <code>timestamp</code> (UTC+7), kiểm tra phòng chống Row Explosion, RobustScaler, log transform (<code>np.log1p</code>), Scikit-Learn Pipeline &amp; ColumnTransformer.</p>
+                </div>
+                <div class="pipeline-detail-block">
+                  <h5>Đầu ra trọng yếu</h5>
+                  <ul>
+                    <li><code>data/processed/air_pollution_final.parquet</code> (Tối ưu I/O)</li>
+                    <li>Module tái lập <code>src/cleaning_pipeline.py</code></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector">↓</div>
+
+          <!-- Stage 4 -->
+          <div class="pipeline-stage" data-stage="4">
+            <div class="pipeline-stage-header" tabindex="0" role="button" aria-expanded="false">
+              <div class="pipeline-stage-left">
+                <div class="pipeline-step-num">04</div>
+                <div class="pipeline-title-group">
+                  <div class="pipeline-title">EDA & MIDTERM REPORT</div>
+                  <div class="pipeline-subtitle">4 họ thống kê mô tả, 7 biểu đồ Tufte &amp; Báo cáo giữa kỳ</div>
+                </div>
+              </div>
+              <div class="pipeline-stage-right">
+                <span class="badge badge-amber">Week 6–8 &bull; M3</span>
+                <span class="pipeline-icon-toggle">▼</span>
+              </div>
+            </div>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-details-grid">
+                <div class="pipeline-detail-block">
+                  <h5>Công nghệ & Phương pháp</h5>
+                  <p>4 họ thống kê (Location, Spread, Shape, Quantiles), nguyên tắc "Shape picks the statistic" (dùng Median/IQR cho phân phối lệch phải), Matplotlib OO API theo chuẩn Tufte &amp; Cleveland, cấu trúc kể chuyện SCQA.</p>
+                </div>
+                <div class="pipeline-detail-block">
+                  <h5>Đầu ra trọng yếu</h5>
+                  <ul>
+                    <li><code>reports/midterm_report.pdf</code> (8–10 trang theo Rubric tuần 8)</li>
+                    <li>Slide thuyết trình 7 phút + 3 phút viva</li>
+                    <li>Bộ biểu đồ xuất bản <code>figures/FIG-01</code> đến <code>FIG-05</code></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector">↓</div>
+
+          <!-- Stage 5 -->
+          <div class="pipeline-stage" data-stage="5">
+            <div class="pipeline-stage-header" tabindex="0" role="button" aria-expanded="false">
+              <div class="pipeline-stage-left">
+                <div class="pipeline-step-num">05</div>
+                <div class="pipeline-title-group">
+                  <div class="pipeline-title">STATISTICAL INFERENCE</div>
+                  <div class="pipeline-subtitle">Kiểm định giả thuyết phi tham số & báo cáo bộ ba chỉ số</div>
+                </div>
+              </div>
+              <div class="pipeline-stage-right">
+                <span class="badge badge-subtle">Week 9</span>
+                <span class="pipeline-icon-toggle">▼</span>
+              </div>
+            </div>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-details-grid">
+                <div class="pipeline-detail-block">
+                  <h5>Công nghệ & Phương pháp</h5>
+                  <p>Kiểm định phi tham số Mann-Whitney U và Wilcoxon signed-rank do vi phạm giả định phân phối chuẩn (Shapiro-Wilk test). Bắt buộc báo cáo bộ ba: p-value + Kích thước hiệu ứng (Rank-Biserial Correlation) + 95% Bootstrap CI.</p>
+                </div>
+                <div class="pipeline-detail-block">
+                  <h5>Đầu ra trọng yếu</h5>
+                  <ul>
+                    <li>Notebook <code>04_statistical_inference.ipynb</code></li>
+                    <li>Bảng đối chứng Mùa Đông vs Mùa Hè, Ngày làm việc vs Cuối tuần</li>
+                    <li>Ước lượng khoảng tin cậy chênh lệch trung vị Bootstrap (1.000 mẫu)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector">↓</div>
+
+          <!-- Stage 6 -->
+          <div class="pipeline-stage" data-stage="6">
+            <div class="pipeline-stage-header" tabindex="0" role="button" aria-expanded="false">
+              <div class="pipeline-stage-left">
+                <div class="pipeline-step-num">06</div>
+                <div class="pipeline-title-group">
+                  <div class="pipeline-title">REGRESSION & CLASSIFICATION</div>
+                  <div class="pipeline-subtitle">Hồi quy OLS (LINE diagnostics) &amp; Phân loại cảnh báo sớm</div>
+                </div>
+              </div>
+              <div class="pipeline-stage-right">
+                <span class="badge badge-subtle">Week 10–11</span>
+                <span class="pipeline-icon-toggle">▼</span>
+              </div>
+            </div>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-details-grid">
+                <div class="pipeline-detail-block">
+                  <h5>Công nghệ & Phương pháp</h5>
+                  <p>Hồi quy OLS biến mục tiêu logarit, chẩn đoán 4 giả định LINE, kiểm tra VIF, Cook's distance, Random Forest Classifier, tạo đặc trưng trễ &amp; rolling, threshold tuning (0.30) tối ưu Recall, phòng chống 4 loại Data Leakage.</p>
+                </div>
+                <div class="pipeline-detail-block">
+                  <h5>Đầu ra trọng yếu</h5>
+                  <ul>
+                    <li>Biểu đồ kiểm chứng Residuals vs Fitted, Q-Q Plot, Durbin-Watson</li>
+                    <li>Mô hình cảnh báo sớm với đánh giá PR-AUC &amp; Recall thay vì Accuracy</li>
+                    <li>Bản kiểm toán chống rò rỉ dữ liệu (Temporal, Target, Train-Test, Group)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector">↓</div>
+
+          <!-- Stage 7 -->
+          <div class="pipeline-stage" data-stage="7">
+            <div class="pipeline-stage-header" tabindex="0" role="button" aria-expanded="false">
+              <div class="pipeline-stage-left">
+                <div class="pipeline-step-num">07</div>
+                <div class="pipeline-title-group">
+                  <div class="pipeline-title">ETHICS / BIAS / SYNTHESIS</div>
+                  <div class="pipeline-subtitle">Kiểm toán định kiến, Datasheet, Model Card &amp; Tinh chỉnh</div>
+                </div>
+              </div>
+              <div class="pipeline-stage-right">
+                <span class="badge badge-subtle">Week 12–14</span>
+                <span class="pipeline-icon-toggle">▼</span>
+              </div>
+            </div>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-details-grid">
+                <div class="pipeline-detail-block">
+                  <h5>Công nghệ & Phương pháp</h5>
+                  <p>Đánh giá dung lượng dữ liệu (giải trình tại sao không dùng Spark), kiểm toán 4 loại bias (Sensor, Spatial, Survivorship, Missing &ne; 0), lập Datasheet for Dataset và Model Card 1 trang, biên soạn báo cáo SCQA.</p>
+                </div>
+                <div class="pipeline-detail-block">
+                  <h5>Đầu ra trọng yếu</h5>
+                  <ul>
+                    <li><code>docs/datasheet.md</code> &amp; <code>docs/model_card.md</code></li>
+                    <li>Mục tuyên bố sử dụng AI trong <code>README.md</code></li>
+                    <li>Bản phản hồi góp ý cố vấn của ThS. Phạm Ngọc Đông (Week 13)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector">↓</div>
+
+          <!-- Stage 8 -->
+          <div class="pipeline-stage" data-stage="8">
+            <div class="pipeline-stage-header" tabindex="0" role="button" aria-expanded="false">
+              <div class="pipeline-stage-left">
+                <div class="pipeline-step-num">08</div>
+                <div class="pipeline-title-group">
+                  <div class="pipeline-title">FINAL DEFENSE</div>
+                  <div class="pipeline-subtitle">Bảo vệ đồ án, vấn đáp phản biện code viva trước hội đồng</div>
+                </div>
+              </div>
+              <div class="pipeline-stage-right">
+                <span class="badge badge-emerald">Week 15 &bull; M6</span>
+                <span class="pipeline-icon-toggle">▼</span>
+              </div>
+            </div>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-details-grid">
+                <div class="pipeline-detail-block">
+                  <h5>Nội dung bảo vệ</h5>
+                  <p>Thuyết trình toàn diện 10–12 phút, vấn đáp cá nhân giải trình từng dòng code, kiểm chứng tính tái lập độc lập của repo và giải trình các quyết định khoa học dữ liệu.</p>
+                </div>
+                <div class="pipeline-detail-block">
+                  <h5>Đầu ra hoàn tất</h5>
+                  <ul>
+                    <li><code>reports/final_report.pdf</code> (Báo cáo đồ án hoàn chỉnh)</li>
+                    <li>Slide thuyết trình chung khảo</li>
+                    <li>Biên bản bảo vệ đồ án tốt nghiệp môn học INFO3020</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 4 — 15-WEEK ROADMAP (CENTERPIECE)
+         ========================================================================= -->
+    <section class="section" id="roadmap" aria-labelledby="roadmapTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Week-by-Week Execution</div>
+          <h2 class="section-title" id="roadmapTitle">15-Week Detailed Roadmap</h2>
+          <p class="section-desc">Lộ trình học tập và triển khai đồ án 15 tuần theo chuẩn môn học INFO3020. Từng tuần được trang bị mục tiêu, nhiệm vụ chi tiết, sản phẩm bàn giao và định nghĩa hoàn thành (Definition of Done) nghiêm ngặt.</p>
+        </div>
+
+        <!-- Interactive Timeline Controls -->
+        <div class="roadmap-controls">
+          <div class="roadmap-filter-buttons" role="group" aria-label="Filter roadmap by chapter phase">
+            <button type="button" class="filter-btn active" data-filter="all">All Weeks (15)</button>
+            <button type="button" class="filter-btn" data-filter="p1">Phase 1: Setup &amp; Ingestion (W01–W02)</button>
+            <button type="button" class="filter-btn" data-filter="p2">Phase 2: Audit &amp; Cleaning (W03–W05)</button>
+            <button type="button" class="filter-btn" data-filter="p3">Phase 3: EDA &amp; Midterm (W06–W08)</button>
+            <button type="button" class="filter-btn" data-filter="p4">Phase 4: Modeling &amp; Inference (W09–W11)</button>
+            <button type="button" class="filter-btn" data-filter="p5">Phase 5: Ethics &amp; Defense (W12–W15)</button>
+          </div>
+
+          <div class="roadmap-expand-actions">
+            <button type="button" class="action-btn-sm" id="expandAllWeeksBtn">Expand All</button>
+            <button type="button" class="action-btn-sm" id="collapseAllWeeksBtn">Collapse All</button>
+          </div>
+        </div>
+
+        <!-- 15 Expandable Timeline Cards -->
+        <div class="timeline-container" id="timelineCardsContainer">
+          
+          <!-- Week 01 -->
+          <article class="timeline-card is-expanded" data-week="1" data-phase="p1">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="true" aria-controls="week-body-1">
+              <div class="timeline-card-left">
+                <span class="week-badge">W01</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Khởi động Dự án &amp; Thiết lập Môi trường CRISP-DM</h3>
+                  <div class="timeline-card-preview">Thiết lập chuẩn dự án CRISP-DM &bull; Repo skeleton &bull; requirements.txt</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Học / Kickoff</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-1">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Thiết lập môi trường lập trình chuẩn mực, khởi tạo GitHub repository theo cấu trúc khuyến nghị của môn học, hiểu rõ bài toán nghiệp vụ theo vòng đời CRISP-DM.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W1: Ba trụ cột Data Science, Vòng đời 6 bước CRISP-DM, 4 vai trò nhóm dữ liệu, Quy tắc dữ liệu thô bất biến (<code>data/raw/</code>), Quy ước nộp bài qua GitHub.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Họp nhóm xác định phân công vai trò (Data Analyst chính, Data Scientist chính).</li>
+                      <li>Tạo repository trên GitHub với tên <code>air-pollution-analysis</code>.</li>
+                      <li>Khởi tạo cây thư mục chuẩn: <code>data/raw/</code>, <code>data/processed/</code>, <code>notebooks/</code>, <code>src/</code>, <code>figures/</code>, <code>reports/</code>, <code>docs/</code>.</li>
+                      <li>Tạo file <code>.gitignore</code> (chặn tracking dữ liệu thô dung lượng lớn và file tạm <code>.ipynb_checkpoints</code>).</li>
+                      <li>Thiết lập môi trường ảo Python (<code>venv</code>), tạo file <code>requirements.txt</code> cố định phiên bản.</li>
+                      <li>Viết bản thảo đầu tiên của <code>README.md</code> mô tả mục tiêu đề tài và cam kết liêm chính học thuật.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Repo GitHub online có cấu trúc thư mục hoàn chỉnh, file <code>requirements.txt</code>, notebook <code>00_environment_test.ipynb</code>.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Bất kỳ thành viên nào clone repo về một máy tính mới, chạy <code>pip install -r requirements.txt</code> đều kích hoạt được kernel Jupyter không gặp lỗi.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 02 -->
+          <article class="timeline-card" data-week="2" data-phase="p1">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-2">
+              <div class="timeline-card-left">
+                <span class="week-badge">W02</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Thu thập Dữ liệu Đa nguồn (Multi-source Data Collection)</h3>
+                  <div class="timeline-card-preview">OpenAQ REST API v3 &bull; Open-Meteo Historical API &bull; Data Dictionary</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Thu thập</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-2">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Thu thập thành công dữ liệu ô nhiễm không khí (PM2.5, PM10) từ OpenAQ REST API và dữ liệu khí tượng bề mặt từ Open-Meteo API trong 2 năm (2023–2024); lưu trữ bất biến và xây dựng Data Dictionary.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W2: 4 con đường lấy dữ liệu, Kỹ thuật gọi REST API (Headers, Pagination, Rate limits), Bẫy mã hóa font tiếng Việt, Ưu thế của định dạng Parquet, 6 câu hỏi I/O bắt buộc của Pandas.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Viết script <code>src/data_collection.py</code> gọi API OpenAQ v3 lấy dữ liệu trạm Hà Nội (US Embassy), xử lý phân trang bằng vòng lặp <code>while</code> và chèn <code>time.sleep(1.0)</code>.</li>
+                      <li>Lưu toàn bộ dữ liệu JSON nguyên gốc vào thư mục <code>data/raw/openaq_raw_2023_2024.json</code>.</li>
+                      <li>Viết script gọi Open-Meteo Historical API theo đúng tọa độ trạm OpenAQ để tải dữ liệu khí tượng; lưu vào <code>data/raw/weather_raw_2023_2024.json</code>.</li>
+                      <li>Chạy 6 câu hỏi I/O kiểm tra nhanh trên Pandas: <code>shape</code>, <code>head/tail</code>, <code>info()</code>, <code>describe()</code>, <code>isna().sum()</code>, <code>duplicated().sum()</code>.</li>
+                      <li>Biên soạn tài liệu <code>docs/data_dictionary.md</code> mô tả chi tiết: tên biến, kiểu dữ liệu, đơn vị đo, tần suất và định nghĩa nghiệp vụ.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Script cào dữ liệu, 2 file raw data trong <code>data/raw/</code>, file <code>docs/data_dictionary.md</code>.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Dữ liệu thô được ghi nhận an toàn trong <code>data/raw/</code> ở chế độ chỉ đọc; file từ điển dữ liệu giải thích đầy đủ 100% các cột thu thập.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 03 -->
+          <article class="timeline-card" data-week="3" data-phase="p2">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-3">
+              <div class="timeline-card-left">
+                <span class="week-badge">W03</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Kiểm toán Chất lượng Dữ liệu (Data Quality Audit)</h3>
+                  <div class="timeline-card-preview">Định lượng 6 chiều chất lượng &bull; Missing ngụy trang &bull; Cơ chế Rubin (MCAR/MAR/MNAR)</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Kiểm toán</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-3">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Đo lường định lượng chất lượng bộ dữ liệu dựa trên 6 chiều kích thước quốc tế; nhận diện toàn bộ các giá trị missing ngụy trang và phân loại chính xác cơ chế khuyết thiếu (MCAR/MAR/MNAR).
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W3: 6 Chiều chất lượng, 3 cấp độ lỗi dữ liệu (Value, Column, Table), Missing ngụy trang ("-999", "None"), Cơ chế Rubin (MCAR, MAR, MNAR), Quy luật chi phí chất lượng 1–10–100.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Xây dựng hàm kiểm toán tự động <code>audit_dataframe(df)</code> xuất ra bảng thống kê: <code>dtype</code>, <code>missing_count</code>, <code>missing_pct</code>, <code>nunique</code>, <code>min</code>, <code>max</code>.</li>
+                      <li>Truy tìm các chuỗi missing ngụy trang trong dữ liệu API: <code>"-999"</code>, <code>"N/A"</code>, <code>"null"</code>, <code>"0.00"</code>.</li>
+                      <li>Chấm điểm bộ dữ liệu theo thang điểm 1–5 trên từng chiều trong 6 chiều chất lượng kèm minh chứng số liệu cụ thể.</li>
+                      <li>Phân tích ma trận mẫu khuyết thiếu: Xác định cơ chế MCAR, MAR, MNAR.</li>
+                      <li>Viết báo cáo kiểm toán chất lượng dữ liệu 2 trang theo bài tập EX3.1 của khóa học.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Notebook <code>02_quality_audit.ipynb</code>, Báo cáo kiểm toán <code>docs/data_quality_audit.md</code>.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Báo cáo kiểm toán có đầy đủ điểm số cho 6 chiều chất lượng; từng cột có missing đều được gán nhãn cơ chế MCAR/MAR/MNAR có biện luận.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 04 -->
+          <article class="timeline-card" data-week="4" data-phase="p2">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-4">
+              <div class="timeline-card-left">
+                <span class="week-badge">W04</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Thực hành Làm sạch &amp; Lập Cleaning Log</h3>
+                  <div class="timeline-card-preview">Logic PM2.5 &le; PM10 &bull; Kẹt sensor &bull; Reindex lưới 1h &bull; Cleaning Log</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Làm sạch</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-4">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Thực hiện làm sạch triệt để các lỗi ở cấp độ giá trị, bản ghi và quan hệ; xử lý ngoại lai lỗi phần cứng và ghi chép nhật ký làm sạch (Cleaning Log).
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W3 &amp; W4: Bẫy xóa dòng (<code>dropna</code>), Bẫy điền trung bình (<code>mean imputation</code>), Xử lý chuỗi thời gian bằng nội suy có kiểm soát, Cột chỉ báo khuyết thiếu, Quy tắc không xóa outlier thực tế.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Loại bỏ các bản ghi trùng lặp thời gian: <code>drop_duplicates(subset=['timestamp'])</code>.</li>
+                      <li>Chuyển đổi múi giờ đồng nhất về UTC+7 (<code>Asia/Ho_Chi_Minh</code>) và sắp xếp chuỗi thời gian tăng dần.</li>
+                      <li>Reindex chuỗi thời gian theo lưới 1 giờ liên tục để phát hiện các lỗ hổng thời gian (Gaps).</li>
+                      <li>Áp dụng điều kiện kiểm tra quan hệ vật lý: Chuyển các giá trị vi phạm PM2.5 &gt; PM10 thành <code>NaN</code>.</li>
+                      <li>Xử lý lỗi kẹt cảm biến (giá trị không đổi suốt &gt; 6 giờ liên tiếp) và lỗi sương mù tán xạ ánh sáng khi độ ẩm RH &gt; 90%.</li>
+                      <li>Áp dụng nội suy tuyến tính (<code>interpolate</code>) cho các khoảng khuyết &le; 2 giờ; tạo cột missing indicator <code>pm25_was_missing</code> cho các khoảng khuyết lớn hơn.</li>
+                      <li>Ghi chép từng thao tác xử lý vào file <code>docs/cleaning_log.md</code>.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Notebook <code>03_data_cleaning.ipynb</code>, tài liệu <code>docs/cleaning_log.md</code>, bộ dữ liệu trung gian trong <code>data/interim/</code>.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Không còn bất kỳ giá trị âm hay mâu thuẫn vật lý nào; file <code>cleaning_log.md</code> ghi nhận đầy đủ mọi phép biến đổi, giải thích rõ lý do.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 05 -->
+          <article class="timeline-card" data-week="5" data-phase="p2">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-5">
+              <div class="timeline-card-left">
+                <span class="week-badge">W05</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Biến đổi, Tích hợp &amp; Đóng gói Pipeline</h3>
+                  <div class="timeline-card-preview">Merge timestamp &bull; Chống nổ dòng &bull; Sklearn Pipeline &bull; Xuất Parquet</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Pipeline</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-5">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Ghép nối hoàn hảo dữ liệu chất lượng không khí và khí tượng theo mốc thời gian; chuẩn hóa thang đo và đóng gói toàn bộ quy trình tiền xử lý thành Scikit-Learn Pipeline không rò rỉ dữ liệu; lưu dữ liệu sạch ra định dạng Parquet.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W5: Chuẩn hóa thang đo (Min-Max vs StandardScaler vs RobustScaler), Biến đổi logarit (<code>np.log1p</code>), Lỗi bùng nổ số hàng khi Merge (Row Explosion Bug), Đóng gói <code>ColumnTransformer</code> &amp; <code>Pipeline</code> chuẩn mực.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Kiểm tra tính duy nhất của khóa: Đảm bảo <code>df_air['timestamp'].is_unique</code> và <code>df_weather['timestamp'].is_unique</code>.</li>
+                      <li>Thực hiện phép nối <code>pd.merge(df_air, df_weather, on='timestamp', how='inner')</code>. Ghi nhận số dòng trước và sau khi merge để bảo đảm không xảy ra Row Explosion.</li>
+                      <li>Áp dụng biến đổi logarit log(1 + x) trên các cột nồng độ bụi để giảm độ lệch phải.</li>
+                      <li>Xây dựng Scikit-Learn <code>Pipeline</code> kết hợp <code>ColumnTransformer</code>: Xử lý riêng biệt cột số (RobustScaler / SimpleImputer median) và cột phân loại (OneHotEncoder).</li>
+                      <li>Xuất bộ dữ liệu sạch hoàn chỉnh ra định dạng nén Parquet: <code>data/processed/air_pollution_final.parquet</code>.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    File dữ liệu sạch <code>data/processed/air_pollution_final.parquet</code>, script đóng gói <code>src/cleaning_pipeline.py</code>.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Đọc file Parquet thành công với kiểu dữ liệu nguyên vẹn; Pipeline chạy thông suốt từ file raw đến output processed chỉ bằng 1 dòng lệnh mà không làm rò rỉ dữ liệu.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 06 -->
+          <article class="timeline-card" data-week="6" data-phase="p3">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-6">
+              <div class="timeline-card-left">
+                <span class="week-badge">W06</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Xác suất &amp; Thống kê Mô tả (Descriptive Statistics)</h3>
+                  <div class="timeline-card-preview">4 họ thống kê &bull; Shape picks the statistic &bull; Pearson vs Spearman &bull; Anscombe check</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">EDA Thống kê</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-6">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Xác lập hồ sơ thống kê toán học toàn diện cho bộ dữ liệu dựa trên 4 họ đại lượng; chứng minh bằng số liệu tại sao Median và IQR là lựa chọn đúng đắn cho chất lượng không khí.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W6: Định lý giới hạn trung tâm (CLT), 4 họ thống kê (Location, Spread, Shape, Quantiles), Nguyên tắc "Hình dạng quyết định chỉ số", Tương quan Pearson vs Spearman, Bài học Anscombe's Quartet &amp; Datasaurus Dozen.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Tính toán đầy đủ 4 họ chỉ số cho PM2.5: Mean, Median, Mode, Phương sai, Độ lệch chuẩn, IQR, Skewness, Kurtosis, Percentiles (P10, P50, P90, P95, P99).</li>
+                      <li>So sánh Mean (54.2 &mu;g/m&sup3;) và Median (38.5 &mu;g/m&sup3;), biện luận mối liên hệ Mean &gt; Median do Skewness &gt; 1.2 để khẳng định dữ liệu lệch phải nặng.</li>
+                      <li>Lập ma trận tương quan kép: Pearson correlation và Spearman correlation giữa PM2.5 và các biến thời tiết.</li>
+                      <li>Vẽ đồ thị phân tán trước khi kết luận về hệ số tương quan giữa nhiệt độ và bụi mịn (kiểm tra bài học Anscombe).</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Notebook <code>04_descriptive_stats.ipynb</code>, bảng tổng hợp chỉ số thống kê trong <code>reports/statistical_profile.csv</code>.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Bảng thống kê có đủ 4 họ đại lượng; có đoạn văn phân tích chuyên sâu chứng minh tại sao không dùng Mean/Std để báo cáo nồng độ bụi đô thị.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 07 -->
+          <article class="timeline-card" data-week="7" data-phase="p3">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-7">
+              <div class="timeline-card-left">
+                <span class="week-badge">W07</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Thiết kế Trực quan hóa Dữ liệu &amp; Kể chuyện SCQA</h3>
+                  <div class="timeline-card-preview">Matplotlib OO API &bull; Tufte Data-Ink &bull; Cleveland ranking &bull; Khung kể chuyện SCQA</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Trực quan hóa</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-7">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Thiết kế bộ 5–7 biểu đồ cốt lõi phục vụ Báo cáo Giữa kỳ theo chuẩn mực Tufte và Cleveland; chuyển dịch từ biểu đồ khám phá sang biểu đồ giải thích (Explanatory plots); viết tiêu đề biểu đồ dạng kết luận.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W7: Thứ bậc kênh thị giác Cleveland &amp; McGill, Tỷ lệ Data-Ink của Edward Tufte, 5 cách biểu đồ đánh lừa thị giác, Bảng màu thân thiện người mù màu, Cấu trúc kể chuyện SCQA.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Lập trình bằng Matplotlib Object-Oriented API (<code>fig, ax = plt.subplots()</code>): Loại bỏ đường viền thừa (spines top và right), định dạng nhãn trục rõ ràng đơn vị đo.</li>
+                      <li>Vẽ biểu đồ FIG-01: Line chart chuỗi thời gian kèm đường trung bình trượt 7 ngày và 30 ngày.</li>
+                      <li>Vẽ biểu đồ FIG-02: Histogram kết hợp đường cong mật độ KDE thể hiện độ lệch chuẩn.</li>
+                      <li>Vẽ biểu đồ FIG-03: Boxplot nồng độ bụi theo 12 tháng, thể hiện rõ chu kỳ mùa vụ.</li>
+                      <li>Vẽ biểu đồ FIG-04: 2D Heatmap (Hour of Day &times; Day of Week) thể hiện đỉnh ô nhiễm giao thông.</li>
+                      <li>Tối ưu hóa tiêu đề biểu đồ: Thay thế toàn bộ tiêu đề mô tả trục bằng tiêu đề phát biểu kết luận.</li>
+                      <li>Phác thảo khung sườn bài báo cáo theo cấu trúc SCQA (Situation, Complication, Question, Answer).</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Các file biểu đồ chất lượng cao trong thư mục <code>figures/</code> (PNG, 300 DPI), bản nháp dàn ý báo cáo giữa kỳ.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    100% biểu đồ tuân thủ quy tắc Bar chart bắt đầu từ 0, không có pie chart, tiêu đề nêu bật insight chính, màu sắc phân biệt rõ ràng.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 08 (Midterm Milestone) -->
+          <article class="timeline-card is-midterm" data-week="8" data-phase="p3">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-8">
+              <div class="timeline-card-left">
+                <span class="week-badge">W08</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">MIDTERM MILESTONE — Báo cáo &amp; Đánh giá Giữa kỳ</h3>
+                  <div class="timeline-card-preview">Báo cáo EDA 8–10 trang &bull; Thuyết trình 7 phút + 3 phút Viva &bull; Rubric W7</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-amber">Milestone 3 &bull; Giữa kỳ</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-8">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Hoàn thiện và nộp Báo cáo Khám phá Dữ liệu (EDA Report) dung lượng 8–10 trang; thực hiện thuyết trình 7 phút và trả lời phản biện 3 phút (Viva) trước giảng viên theo đúng Rubric môn học.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Trọng số điểm Rubric</div>
+                  <div class="week-box-content">
+                    Data cleaning 25%, Depth of EDA 25%, Chart quality 20%, Interpretation 20%, Presentation 10%.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Soạn thảo tài liệu <code>reports/midterm_report.pdf</code> (8–10 trang) gồm: Đặt vấn đề nghiệp vụ, Nguồn dữ liệu &amp; Bản quyền, Hồ sơ kiểm toán chất lượng 6 chiều, Quy trình làm sạch dữ liệu có đối chứng, Phân tích thống kê 4 họ chỉ số, Bộ biểu đồ kể chuyện SCQA và Hàm ý chính sách ban đầu.</li>
+                      <li>Thiết kế slide thuyết trình (khoảng 8–10 slide) tập trung vào insight phát hiện từ dữ liệu.</li>
+                      <li>Kiểm tra repository: Bấm <strong>Restart Kernel &amp; Run All</strong> trên notebook nộp bài để đảm bảo chạy mượt mà không lỗi.</li>
+                      <li>Tập dượt thuyết trình căn chuẩn thời gian 7 phút và chuẩn bị câu trả lời cho các câu hỏi viva.</li>
+                      <li>Nộp link GitHub repo và file PDF báo cáo trước 23:59 ngày quy định.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    File <code>reports/midterm_report.pdf</code>, slide thuyết trình, commit Git đánh dấu tag <code>midterm-submission</code>.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Báo cáo nộp đúng hạn, notebook chạy không lỗi, bảo vệ thành công bài thuyết trình và trả lời thỏa đáng các câu hỏi viva của giảng viên.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 09 -->
+          <article class="timeline-card" data-week="9" data-phase="p4">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-9">
+              <div class="timeline-card-left">
+                <span class="week-badge">W09</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Suy luận Thống kê &amp; Kiểm định Giả thuyết</h3>
+                  <div class="timeline-card-preview">Mann-Whitney U &bull; Effect size (r_rb) &bull; 95% Bootstrap CI &bull; Không báo cáo p-value đơn độc</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Suy luận</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-9">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Kiểm định tính có ý nghĩa thống kê của các quy luật chu kỳ thời gian đã phát hiện trong EDA; thực hiện kiểm định giả thuyết phi tham số và báo cáo đầy đủ bộ ba: p-value, Effect Size và 95% Confidence Interval.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W9: Bước nhảy nhận thức từ mẫu sang tổng thể, 4 sai lầm kinh điển khi đọc p-value, Sai lầm loại I (&alpha;) vs Loại II (&beta;), Kích thước hiệu ứng (Effect size), Cây quyết định chọn kiểm định thống kê.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Thiết lập bài kiểm định 1: So sánh nồng độ PM2.5 giữa Mùa Đông và Mùa Hè (H0: Trung vị Đông = Trung vị Hè).</li>
+                      <li>Kiểm tra tính chuẩn của phân phối bằng Shapiro-Wilk test. Xác nhận dữ liệu không chuẩn.</li>
+                      <li>Thực hiện kiểm định phi tham số Mann-Whitney U (<code>scipy.stats.mannwhitneyu</code>).</li>
+                      <li>Tính toán kích thước hiệu ứng Rank-Biserial Correlation (r_rb) và xây dựng khoảng tin cậy 95% cho chênh lệch trung vị bằng kỹ thuật Bootstrap (1.000 mẫu lặp).</li>
+                      <li>Thiết lập bài kiểm định 2: So sánh Ngày làm việc vs Ngày cuối tuần. Phân tích sự khác biệt giữa ý nghĩa thống kê và ý nghĩa thực tiễn.</li>
+                      <li>Viết kết luận thống kê chuẩn mực theo bài tập EX9.1 (tuyệt đối không báo cáo p-value đơn độc).</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Notebook <code>05_statistical_inference.ipynb</code>, Bảng tổng hợp kết quả kiểm định giả thuyết trong <code>reports/inference_results.md</code>.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    100% các kết luận kiểm định đều có đầy đủ: Thống kê kiểm định U, p-value, Effect size và Khoảng tin cậy 95%.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 10 -->
+          <article class="timeline-card" data-week="10" data-phase="p4">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-10">
+              <div class="timeline-card-left">
+                <span class="week-badge">W10</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Phân tích Hồi quy &amp; Chẩn đoán Giả định OLS</h3>
+                  <div class="timeline-card-preview">Temporal train/test split &bull; 4 Giả định LINE &bull; VIF &bull; Cook's Distance &bull; Diễn giải &beta;</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Hồi quy</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-10">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Xây dựng mô hình hồi quy tuyến tính đa biến OLS đánh giá tác động của các yếu tố khí tượng lên PM2.5; thực hiện đầy đủ quy trình 6 bước chẩn đoán giả định LINE, kiểm tra đa cộng tuyến VIF và so sánh với Ridge/Lasso.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W10: Hồi quy OLS, Ba nghĩa vụ khi diễn giải hệ số &beta;, 4 Giả định LINE, Đa cộng tuyến &amp; VIF, Điểm ảnh hưởng Cook's distance, Điều hòa Ridge (L2) &amp; Lasso (L1).
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Phân chia dữ liệu theo mốc thời gian: Train (2023) / Test (2024).</li>
+                      <li>Biến đổi biến mục tiêu sang logarit: Y = log(1 + PM2.5).</li>
+                      <li>Huấn luyện mô hình hồi quy OLS trên tập Train bằng <code>statsmodels.api.OLS</code> và Scikit-Learn.</li>
+                      <li>Chẩn đoán giả định LINE trên phần dư:
+                        <ul>
+                          <li>Linearity &amp; Equal Variance: Vẽ biểu đồ Residuals vs Fitted values.</li>
+                          <li>Independence: Tính thống kê Durbin-Watson.</li>
+                          <li>Normality: Vẽ Q-Q plot và chạy Shapiro-Wilk trên phần dư.</li>
+                        </ul>
+                      </li>
+                      <li>Tính toán chỉ số VIF cho các biến thời tiết, loại bỏ hiện tượng đa cộng tuyến.</li>
+                      <li>Đánh giá mô hình trên tập TEST độc lập: Báo cáo MAE, RMSE, R&sup2; cạnh Baseline Dummy Regressor.</li>
+                      <li>Viết diễn giải hệ số &beta; đúng cấu trúc 3 nghĩa vụ bắt buộc cho từng biến thời tiết.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Notebook <code>06_regression_analysis.ipynb</code>, 4 biểu đồ chẩn đoán LINE trong <code>figures/</code>, bảng tham số hồi quy.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Mô hình được đánh giá trên tập Test độc lập; biểu đồ phần dư được phân tích cẩn thận; hệ số &beta; được diễn giải chuẩn xác, không mắc lỗi ngụy biện nhân quả.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 11 -->
+          <article class="timeline-card" data-week="11" data-phase="p4">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-11">
+              <div class="timeline-card-left">
+                <span class="week-badge">W11</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Phân loại Cảnh báo Ô nhiễm &amp; Kỹ nghệ Đặc trưng</h3>
+                  <div class="timeline-card-preview">PM2.5 &ge; 50 &mu;g/m&sup3; &bull; Feature Engineering &bull; Threshold Tuning &bull; Chống Leakage</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Phân loại</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-11">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Xây dựng mô hình phân loại nhị phân cảnh báo sớm ngày ô nhiễm nghiêm trọng (PM2.5 &ge; 50 &mu;g/m&sup3;); tạo ít nhất 5 đặc trưng mới; xử lý mất cân bằng lớp; tối ưu ngưỡng quyết định theo chi phí y tế cộng đồng; kiểm toán chống rò rỉ dữ liệu.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W11: Mô hình Logistic Regression &amp; Random Forest, Bẫy Accuracy trên dữ liệu mất cân bằng, Ma trận nhầm lẫn, Đánh đổi Precision vs Recall, Đường cong PR-AUC, Threshold Tuning, Kỹ nghệ đặc trưng thời gian, 4 dạng rò rỉ dữ liệu.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Định nghĩa nhãn nhị phân: <code>y = (df['pm25'] &gt;= 50).astype(int)</code>.</li>
+                      <li>Tạo 5 đặc trưng miền ứng dụng: Lags thời gian (<code>pm25_lag24</code>), Rolling statistics (mean 24h, std 24h), Cờ lặng gió (<code>wind_stagnant</code>), Chỉ số tương tác nhiệt ẩm.</li>
+                      <li>Phân chia Train/Test theo thời gian để phòng ngừa Temporal Leakage.</li>
+                      <li>Huấn luyện Baseline (DummyClassifier) và 2 mô hình: Logistic Regression (<code>class_weight='balanced'</code>) và Random Forest Classifier.</li>
+                      <li>Vẽ đường cong Precision-Recall (PR Curve), tính chỉ số PR-AUC.</li>
+                      <li>Tinh chỉnh ngưỡng xác suất: Hạ ngưỡng xuống 0.30 để ưu tiên tối đa hóa Recall.</li>
+                      <li>Lập bảng kiểm toán phòng chống 4 dạng rò rỉ dữ liệu theo bài tập EX11.4.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Notebook <code>07_classification_modeling.ipynb</code>, Bảng so sánh hiệu năng các mô hình, Bản kiểm toán chống rò rỉ dữ liệu.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Báo cáo so sánh mô hình có đầy đủ Precision, Recall, F1, PR-AUC đặt cạnh Baseline; ngưỡng quyết định được biện luận từ bài toán sức khỏe thực tế.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 12 -->
+          <article class="timeline-card" data-week="12" data-phase="p5">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-12">
+              <div class="timeline-card-left">
+                <span class="week-badge">W12</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Đạo đức Dữ liệu, Định kiến &amp; Nộp Project Charter</h3>
+                  <div class="timeline-card-preview">Giải trình không dùng Spark &bull; 4 Loại Bias &bull; Datasheet &bull; Model Card</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Đạo đức &amp; Charter</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-12">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Thực hiện kiểm toán toàn diện về quy mô dữ liệu (giải trình tại sao không cần Spark), nhận diện 4 loại định kiến (Bias); viết Datasheet for Dataset và Model Card 1 trang; hoàn thiện Project Charter nộp trước thềm giai đoạn nước rút.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W12: Ngưỡng Big Data thực tế, Nghị định 13/2023/NĐ-CP, Sổ tay định kiến (Sensor bias, Spatial bias, Survivorship bias), Tính giải trình (Explainability), Bản chuẩn Datasheet for Datasets &amp; Model Cards.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Đo lường kích thước dữ liệu trên đĩa (MB), RAM chiếm dụng và thời gian chạy 1 lượt; viết 1 đoạn văn khẳng định tại sao dữ liệu không cần dùng tới Apache Spark.</li>
+                      <li>Đo lường tỷ lệ nén và tốc độ đọc/ghi khi chuyển sang định dạng Parquet.</li>
+                      <li>Lập danh mục rà soát đạo đức theo Checklist slide W12.</li>
+                      <li>Soạn thảo tài liệu <code>docs/datasheet.md</code> (Datasheet for Dataset).</li>
+                      <li>Soạn thảo tài liệu <code>docs/model_card.md</code> (Model Card 1 trang).</li>
+                      <li>Bổ sung mục Tuyên bố mức độ sử dụng AI vào <code>README.md</code>.</li>
+                      <li>Nộp bản Project Charter hoàn chỉnh theo biểu mẫu của giảng viên trước 23:59 ngày quy định.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    File <code>docs/datasheet.md</code>, <code>docs/model_card.md</code>, Project Charter nộp giảng viên, mục AI declaration trong <code>README.md</code>.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Hoàn thành trọn vẹn 100% các mục trong Checklist đạo đức; nộp Project Charter đúng hạn.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 13 -->
+          <article class="timeline-card" data-week="13" data-phase="p5">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-13">
+              <div class="timeline-card-left">
+                <span class="week-badge">W13</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Cố vấn Đồ án &amp; Tinh chỉnh Toàn diện (Project Mentoring)</h3>
+                  <div class="timeline-card-preview">Review cùng ThS. Phạm Ngọc Đông &bull; Tinh chỉnh Pipeline &bull; Refactoring code src/</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Cố vấn</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-13">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Làm việc trực tiếp với giảng viên hướng dẫn (ThS. Phạm Ngọc Đông) trong buổi cố vấn; tiếp thu góp ý phản biện để tinh chỉnh pipeline, khắc phục các điểm yếu trong mô hình và kiểm định.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Vòng lặp phi tuyến của CRISP-DM, Tinh chỉnh mô hình dựa trên phản biện khoa học, Chuẩn hóa mã nguồn tái lập.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Trình bày tổng thể tiến độ đồ án và các phát hiện chính với giảng viên trong buổi học Tuần 13.</li>
+                      <li>Ghi nhận nhận xét của giảng viên về kiểm định thống kê, giả định LINE, sự đánh đổi Precision-Recall.</li>
+                      <li>Tái cấu trúc mã nguồn: Đưa các hàm dùng chung vào các module <code>.py</code> trong thư mục <code>src/</code>.</li>
+                      <li>Bổ sung các phân tích độ nhạy (Sensitivity Analysis).</li>
+                      <li>Dọn dẹp notebooks: Xóa bỏ cell rác, thêm markdown chú thích chi tiết cho từng khối code.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Mã nguồn đã được tái cấu trúc sạch sẽ, biên bản họp tiếp thu ý kiến cố vấn của giảng viên.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Toàn bộ code trong <code>src/</code> có docstrings rõ ràng; các điểm góp ý của giảng viên được phản hồi và chỉnh sửa đầy đủ trong code.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 14 -->
+          <article class="timeline-card" data-week="14" data-phase="p5">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-14">
+              <div class="timeline-card-left">
+                <span class="week-badge">W14</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">Kể chuyện Dữ liệu &amp; Soạn thảo Báo cáo Cuối kỳ</h3>
+                  <div class="timeline-card-preview">Final Report PDF &bull; Bố cục SCQA &bull; Slide bảo vệ 12–15 trang &bull; Q&amp;A Prep</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-subtle">Storytelling</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-14">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Hoàn thiện Báo cáo Đồ án Tốt nghiệp Môn học dạng văn bản (Final Project Report) theo cấu trúc kể chuyện SCQA mạch lạc; thiết kế slide bảo vệ đồ án chuyên nghiệp, ấn tượng.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Kiến thức INFO3020</div>
+                  <div class="week-box-content">
+                    Slide W7 &amp; W14: Nghệ thuật kể chuyện bằng dữ liệu (Data Storytelling), Cấu trúc SCQA (Situation, Complication, Question, Answer), Nguyên tắc trình bày slide khoa học, Kỹ năng giải trình viva.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Soạn thảo Báo cáo Đồ án Cuối kỳ <code>reports/final_report.pdf</code> theo bố cục SCQA chặt chẽ:
+                        <ul>
+                          <li><strong>S (Situation):</strong> Bối cảnh phát triển đô thị và thực trạng chất lượng không khí tại Hà Nội/TP.HCM.</li>
+                          <li><strong>C (Complication):</strong> Ô nhiễm diễn biến thất thường, các đợt bụi mịn vượt ngưỡng nghiêm trọng ảnh hưởng sức khỏe nhưng khó dự báo nếu chỉ nhìn trực quan.</li>
+                          <li><strong>Q (Question):</strong> Quy luật chu kỳ thời gian chi phối ô nhiễm? Các yếu tố khí tượng tác động định lượng ra sao? Làm thế nào để cảnh báo sớm hiệu quả?</li>
+                          <li><strong>A (Answer):</strong> Trình bày hệ thống bằng chứng định lượng từ Kiểm định giả thuyết, Hồi quy OLS có chẩn đoán LINE, Phân loại cảnh báo sớm, kèm giải pháp khuyến nghị chính sách và Model Card.</li>
+                        </ul>
+                      </li>
+                      <li>Thiết kế slide thuyết trình bảo vệ (12–15 slides).</li>
+                      <li>Luyện tập phân chia thời lượng trình bày giữa các thành viên nhóm (tổng thời gian 10–12 phút).</li>
+                      <li>Chuẩn bị tài liệu hỏi đáp (Q&amp;A Prep Document): Dự liệu 15 câu hỏi hội đồng có thể chất vấn.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    File báo cáo cuối kỳ <code>reports/final_report.pdf</code>, slide thuyết trình bảo vệ đồ án.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Báo cáo hoàn chỉnh, in ấn đẹp, không lỗi chính tả; slide thuyết trình truyền tải trọn vẹn câu chuyện dữ liệu trong đúng 10–12 phút.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Week 15 (Final Defense) -->
+          <article class="timeline-card is-defense" data-week="15" data-phase="p5">
+            <div class="timeline-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="week-body-15">
+              <div class="timeline-card-left">
+                <span class="week-badge">W15</span>
+                <div class="timeline-header-info">
+                  <h3 class="timeline-card-title">FINAL DEFENSE — Báo cáo Đồ án Tốt nghiệp Môn học</h3>
+                  <div class="timeline-card-preview">Bảo vệ đồ án trước Hội đồng &bull; Oral Defense / Viva &bull; Đóng gói bàn giao repo</div>
+                </div>
+              </div>
+              <div class="timeline-card-right">
+                <span class="badge badge-emerald">Milestone 6 &bull; Chung khảo</span>
+                <span class="timeline-expand-arrow">▶</span>
+              </div>
+            </div>
+            <div class="timeline-card-body" id="week-body-15">
+              <div class="week-details-grid">
+                <div class="week-detail-box">
+                  <div class="week-box-title">🎯 Mục tiêu tuần</div>
+                  <div class="week-box-content">
+                    Thuyết trình bảo vệ đồ án trước Hội đồng chấm thi môn học; giải trình tự tin, mạch lạc từng dòng code và mọi luận điểm khoa học trong buổi vấn đáp (Oral Defense / Viva); đóng gói bàn giao repository.
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📚 Chuẩn đầu ra CLO</div>
+                  <div class="week-box-content">
+                    Tích hợp toàn diện 15 tuần học; Quy tắc ứng xử và bảo vệ đồ án theo chuẩn đầu ra CLO4; Năng lực làm chủ phương pháp luận khoa học dữ liệu.
+                  </div>
+                </div>
+                <div class="week-detail-box" style="grid-column: 1 / -1;">
+                  <div class="week-box-title">📋 Nhiệm vụ chính (Tasks)</div>
+                  <div class="week-box-content">
+                    <ol>
+                      <li>Kiểm tra kỹ thuật lần cuối: Đẩy commit mới nhất lên GitHub, bảo đảm file <code>README.md</code> hiển thị đẹp mắt, link các tài liệu hoạt động chính xác.</li>
+                      <li>Bấm <strong>Restart &amp; Run All</strong> trên tất cả các notebooks trước sự chứng kiến của cả nhóm để chắc chắn 100% không còn lỗi ngầm.</li>
+                      <li>Thực hiện thuyết trình trước hội đồng giảng viên (10–12 phút).</li>
+                      <li>Trả lời phản biện cá nhân (Individual Viva): Mỗi thành viên tự tin giải thích chi tiết logic toán học, lý do chọn mô hình, cơ chế xử lý dữ liệu của phần việc mình phụ trách.</li>
+                      <li>Tiếp thu đánh giá cuối cùng của hội đồng và lưu trữ biên bản bảo vệ.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="week-detail-box">
+                  <div class="week-box-title">📦 Deliverables</div>
+                  <div class="week-box-content">
+                    Link GitHub Repository chính thức, Báo cáo đồ án cuối kỳ, Model Card, Biên bản bảo vệ đồ án.
+                  </div>
+                </div>
+                <div class="week-detail-box dod-box">
+                  <div class="week-box-title">✅ Definition of Done</div>
+                  <div class="week-box-content">
+                    Hoàn thành xuất sắc bài bảo vệ đồ án trước hội đồng; toàn bộ thành viên vượt qua phần hỏi đáp phản biện cá nhân; đồ án đáp ứng toàn diện các tiêu chí khắt khe của môn INFO3020.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 5 — INFO3020 SKILL MAPPING
+         ========================================================================= -->
+    <section class="section" id="skill-mapping" aria-labelledby="skillsTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Course Integration</div>
+          <h2 class="section-title" id="skillsTitle">INFO3020 Skill Mapping</h2>
+          <p class="section-desc">Ma trận ánh xạ từng tuần học vào các nội dung kiến thức cốt lõi của chương trình INFO3020. Mọi hạng mục đều là bắt buộc theo đề cương đào tạo chuẩn.</p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 28%;">Chủ đề INFO3020</th>
+                <th scope="col" style="width: 57%;">Nội dung áp dụng cụ thể trong Project</th>
+                <th scope="col" style="width: 15%; text-align: center;">Yêu cầu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-topic-cell">W1: What is Data Science</td>
+                <td>Vòng đời CRISP-DM, cấu trúc repo chuẩn, dữ liệu raw bất biến</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W2: Multi-source Data Collection</td>
+                <td>Thu thập đa nguồn (API OpenAQ + Open-Meteo), Data Dictionary, lưu trữ Parquet</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W3: Data Quality &amp; Processing</td>
+                <td>Kiểm toán 6 chiều chất lượng, phân loại MCAR/MAR/MNAR, missing ngụy trang</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W4: Practical Cleaning</td>
+                <td>Xử lý lỗi trạm đo, logic vật lý PM2.5 &le; PM10, lập Cleaning Log</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W5: Transformation &amp; Integration</td>
+                <td>RobustScaler, log-transform, merge theo timestamp không nổ dòng, Sklearn Pipeline</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W6: Descriptive Statistics</td>
+                <td>4 họ chỉ số, chứng minh phân phối lệch phải dùng Median/IQR, kiểm tra Anscombe</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W7: Data Visualization</td>
+                <td>Nguyên tắc Tufte (Data-ink), Cleveland ranking, SCQA storytelling, tiêu đề kết luận</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W8: Midterm Project</td>
+                <td>Báo cáo giữa kỳ 8–10 trang, thuyết trình 7 phút + 3 phút viva</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W9: Statistical Inference</td>
+                <td>Kiểm định Mann-Whitney U mùa đông vs hè, ngày thường vs cuối tuần, báo cáo Effect size + CI</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W10: Regression Analysis</td>
+                <td>Hồi quy OLS tác động khí tượng lên PM2.5, chẩn đoán giả định LINE, VIF, Cook's dist</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W11: Classification &amp; Features</td>
+                <td>Dự báo cảnh báo ô nhiễm vượt ngưỡng, feature lags/rolling, xử lý imbalance, PR-AUC</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W12: Big Data, Ethics &amp; Bias</td>
+                <td>Giải trình tại sao không dùng Spark, kiểm toán 4 loại bias, lập Datasheet &amp; Model Card</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W13–14: Project Work</td>
+                <td>Tinh chỉnh Pipeline, hoàn thiện cấu trúc SCQA, tham vấn giảng viên</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+              <tr>
+                <td class="table-topic-cell">W15: Final Defense</td>
+                <td>Thuyết trình bảo vệ đồ án cuối kỳ, vấn đáp code viva trước hội đồng</td>
+                <td style="text-align: center;"><span class="badge badge-required">REQUIRED</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 6 — DATA PLAN
+         ========================================================================= -->
+    <section class="section" id="data-plan" aria-labelledby="dataPlanTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Data Architecture</div>
+          <h2 class="section-title" id="dataPlanTitle">Data Plan &amp; Variable Specifications</h2>
+          <p class="section-desc">Kế hoạch thu thập, các biến định lượng và mô hình phân tầng nguồn dữ liệu bảo đảm tính liên tục và khả năng tái lập.</p>
+        </div>
+
+        <!-- Source Hierarchy Visualization -->
+        <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-primary);">Phân tầng nguồn dữ liệu (Source Hierarchy)</h3>
+        <div class="data-sources-hierarchy">
+          <div class="source-card source-card-primary">
+            <div class="source-level" style="color: var(--accent-cyan);">PRIMARY SOURCE</div>
+            <div class="source-name">OpenAQ REST API v3</div>
+            <div class="source-desc">
+              Trạm quan trắc mặt đất tham chiếu đạt chuẩn EPA (Beta Attenuation Monitor - BAM 1020) tại Đại sứ quán Hoa Kỳ Hà Nội. Dữ liệu PM2.5, PM10 theo giờ trong 2 năm (2023–2024). License: ODC-BY.
+            </div>
+          </div>
+
+          <div class="source-card source-card-secondary">
+            <div class="source-level" style="color: var(--accent-blue);">SECONDARY SOURCE</div>
+            <div class="source-name">Open-Meteo Historical API</div>
+            <div class="source-desc">
+              Dữ liệu khí tượng tái phân tích lịch sử độ phân giải cao ERA5 Reanalysis theo đúng tọa độ trạm quan trắc mặt đất (nhiệt độ, độ ẩm, tốc độ gió, hướng gió, lượng mưa, áp suất). License: CC BY 4.0.
+            </div>
+          </div>
+
+          <div class="source-card source-card-backup">
+            <div class="source-level" style="color: var(--text-muted);">CONTINGENCY / BACKUP (DỰ PHÒNG)</div>
+            <div class="source-name">AirNow CSV &amp; PAM Air Portal</div>
+            <div class="source-desc">
+              Nguồn dự phòng rủi ro API rate limit hoặc đứt cáp mạng: Kho lưu trữ CSV hàng năm từ US Dept of State AirNow hoặc mạng lưới cảm biến PAM Air / Cổng môi trường Hà Nội (Envidata). Chưa sử dụng trừ khi kích hoạt kế hoạch rủi ro.
+            </div>
+          </div>
+        </div>
+
+        <!-- Variables Table -->
+        <h3 style="font-size: 1.1rem; margin: 2rem 0 1rem; color: var(--text-primary);">Bảng đặc tả 10 biến dữ liệu thu thập (Variable Dictionary)</h3>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th scope="col">Tên biến</th>
+                <th scope="col">Kiểu</th>
+                <th scope="col">Đơn vị</th>
+                <th scope="col">Tần suất</th>
+                <th scope="col">Vai trò &amp; Lý do thu thập</th>
+                <th scope="col">Nguồn</th>
+                <th scope="col">Khóa nối</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>timestamp</code></td>
+                <td>Datetime</td>
+                <td>ISO 8601</td>
+                <td>1 giờ</td>
+                <td>Trục thời gian chuẩn, trích xuất giờ/ngày/thứ/tháng</td>
+                <td>OpenAQ / Open-Meteo</td>
+                <td><strong>Primary Key</strong></td>
+              </tr>
+              <tr>
+                <td><code>station_id</code></td>
+                <td>String</td>
+                <td>Mã trạm</td>
+                <td>Cố định</td>
+                <td>Định danh trạm mặt đất, kiểm soát tính đồng nhất không gian</td>
+                <td>OpenAQ</td>
+                <td>Group Key</td>
+              </tr>
+              <tr>
+                <td><code>pm25</code></td>
+                <td>Float64</td>
+                <td>&mu;g/m&sup3;</td>
+                <td>1 giờ</td>
+                <td><strong>Biến mục tiêu cốt lõi</strong>; chất gây nguy hại nhất cho hô hấp</td>
+                <td>OpenAQ (US Embassy)</td>
+                <td>Theo <code>timestamp</code></td>
+              </tr>
+              <tr>
+                <td><code>pm10</code></td>
+                <td>Float64</td>
+                <td>&mu;g/m&sup3;</td>
+                <td>1 giờ</td>
+                <td>Bụi thô; dùng kiểm tra tính hợp lệ quan hệ vật lý: PM2.5 &le; PM10</td>
+                <td>OpenAQ</td>
+                <td>Theo <code>timestamp</code></td>
+              </tr>
+              <tr>
+                <td><code>temperature</code></td>
+                <td>Float64</td>
+                <td>&deg;C</td>
+                <td>1 giờ</td>
+                <td>Ảnh hưởng đến đối lưu không khí và phản ứng quang hóa</td>
+                <td>Open-Meteo API</td>
+                <td>Theo <code>timestamp</code></td>
+              </tr>
+              <tr>
+                <td><code>relative_humidity</code></td>
+                <td>Float64</td>
+                <td>%</td>
+                <td>1 giờ</td>
+                <td>Độ ẩm cao kích thích hút ẩm làm nở hạt bụi và gây nhiễu sensor</td>
+                <td>Open-Meteo API</td>
+                <td>Theo <code>timestamp</code></td>
+              </tr>
+              <tr>
+                <td><code>wind_speed</code></td>
+                <td>Float64</td>
+                <td>m/s</td>
+                <td>1 giờ</td>
+                <td>Động lực phát tán và pha loãng chất ô nhiễm; gió lặng gây tích tụ</td>
+                <td>Open-Meteo API</td>
+                <td>Theo <code>timestamp</code></td>
+              </tr>
+              <tr>
+                <td><code>wind_direction</code></td>
+                <td>Float64</td>
+                <td>Độ (0&deg;–360&deg;)</td>
+                <td>1 giờ</td>
+                <td>Hướng vận chuyển bụi từ các vùng công nghiệp lân cận</td>
+                <td>Open-Meteo API</td>
+                <td>Theo <code>timestamp</code></td>
+              </tr>
+              <tr>
+                <td><code>precipitation</code></td>
+                <td>Float64</td>
+                <td>mm</td>
+                <td>1 giờ</td>
+                <td>Hiệu ứng rửa trôi (Wet scavenging), kéo bụi mịn lắng đọng</td>
+                <td>Open-Meteo API</td>
+                <td>Theo <code>timestamp</code></td>
+              </tr>
+              <tr>
+                <td><code>surface_pressure</code></td>
+                <td>Float64</td>
+                <td>hPa</td>
+                <td>1 giờ</td>
+                <td>Áp suất cao gắn liền với nghịch nhiệt và thời tiết tĩnh đọng mùa đông</td>
+                <td>Open-Meteo API</td>
+                <td>Theo <code>timestamp</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 7 — DATA QUALITY & CLEANING
+         ========================================================================= -->
+    <section class="section" id="cleaning" aria-labelledby="cleaningTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Audit &amp; Preprocessing</div>
+          <h2 class="section-title" id="cleaningTitle">Data Quality &amp; Cleaning</h2>
+          <p class="section-desc">Bộ tiêu chuẩn kiểm toán 6 chiều chất lượng quốc tế và danh mục kiểm tra (Checklist) làm sạch dữ liệu chuỗi thời gian 3 cấp độ.</p>
+        </div>
+
+        <!-- 6 Dimensions Cards -->
+        <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-primary);">6 Chiều kích thước chất lượng dữ liệu (6 Quality Dimensions)</h3>
+        <div class="dimensions-grid">
+          <div class="dimension-card">
+            <div class="dimension-num">01</div>
+            <div class="dimension-name">Completeness</div>
+            <div class="dimension-desc">Độ đầy đủ; phân loại tỷ lệ missing theo cơ chế MCAR, MAR, MNAR.</div>
+          </div>
+          <div class="dimension-card">
+            <div class="dimension-num">02</div>
+            <div class="dimension-name">Accuracy</div>
+            <div class="dimension-desc">Độ chính xác; đối chiếu giữa trạm BAM 1020 và các cảm biến lân cận.</div>
+          </div>
+          <div class="dimension-card">
+            <div class="dimension-num">03</div>
+            <div class="dimension-name">Consistency</div>
+            <div class="dimension-desc">Độ nhất quán; chuẩn hóa đơn vị &mu;g/m&sup3; và múi giờ thống nhất UTC+7.</div>
+          </div>
+          <div class="dimension-card">
+            <div class="dimension-num">04</div>
+            <div class="dimension-name">Validity</div>
+            <div class="dimension-desc">Tính hợp lệ; đúng định dạng số thực <code>float64</code> và tọa độ địa lý.</div>
+          </div>
+          <div class="dimension-card">
+            <div class="dimension-num">05</div>
+            <div class="dimension-name">Uniqueness</div>
+            <div class="dimension-desc">Tính duy nhất; mỗi cặp <code>(timestamp, station_id)</code> là duy nhất.</div>
+          </div>
+          <div class="dimension-card">
+            <div class="dimension-num">06</div>
+            <div class="dimension-name">Timeliness</div>
+            <div class="dimension-desc">Tính kịp thời; chuỗi liên tục bao trọn 12 tháng, không mất trắng mùa vụ.</div>
+          </div>
+        </div>
+
+        <!-- Interactive Cleaning Checklist -->
+        <div class="checklist-section-title">
+          <span>Interactive Cleaning Checklist (Tương tác đánh dấu danh mục làm sạch)</span>
+          <span class="badge badge-emerald" id="checklistCounter">0/10 hoàn thành</span>
+        </div>
+
+        <!-- Value Level -->
+        <div class="checklist-group">
+          <div style="padding: 0.75rem 1.25rem; background-color: var(--bg-surface-elevated); font-weight: 600; font-size: 0.85rem; color: var(--accent-cyan);">
+            A. CẤP ĐỘ GIÁ TRỊ (VALUE LEVEL)
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="val-1">
+            <span class="checklist-label">
+              <strong>Phát hiện Missing ngụy trang:</strong> Nhận diện các chuỗi lỗi trạm <code>"-999"</code>, <code>"-9999"</code>, <code>"N/A"</code>, <code>"None"</code>, <code>"null"</code> và chuyển về <code>NaN</code> ngay khi nạp file.
+            </span>
+            <span class="checklist-badge">Value</span>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="val-2">
+            <span class="checklist-label">
+              <strong>Giá trị âm hoặc bằng 0 bất thường:</strong> Bụi mịn không thể âm (PM2.5 &lt; 0) và cực khó duy trì 0.00 &mu;g/m&sup3; liên tục trong không khí đô thị &rarr; đổi sang <code>NaN</code>.
+            </span>
+            <span class="checklist-badge">Value</span>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="val-3">
+            <span class="checklist-label">
+              <strong>Lỗi kẹt cảm biến (Stuck sensor values):</strong> Nồng độ giữ nguyên một giá trị đến từng chữ số thập phân suốt &gt; 6 giờ liên tiếp (lỗi treo phần cứng) &rarr; chuyển <code>NaN</code>.
+            </span>
+            <span class="checklist-badge">Hardware</span>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="val-4">
+            <span class="checklist-label">
+              <strong>Nhiễu sương mù độ ẩm cực cao (High Humidity Fog Error):</strong> Khi RH &gt; 90%, tán xạ quang học đếm hạt sương thành bụi mịn &rarr; tạo cờ cảnh báo <code>is_high_humidity_fog</code>.
+            </span>
+            <span class="checklist-badge">Physics</span>
+          </label>
+        </div>
+
+        <!-- Record Level -->
+        <div class="checklist-group">
+          <div style="padding: 0.75rem 1.25rem; background-color: var(--bg-surface-elevated); font-weight: 600; font-size: 0.85rem; color: var(--accent-cyan);">
+            B. CẤP ĐỘ BẢN GHI (RECORD LEVEL)
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="rec-1">
+            <span class="checklist-label">
+              <strong>Trùng lặp mốc thời gian (Duplicate Timestamps):</strong> Cùng một trạm xuất hiện 2 bản ghi cho 1 giờ; xử lý giữ bản ghi sau cùng hoặc tính trung bình bằng <code>drop_duplicates</code>.
+            </span>
+            <span class="checklist-badge">Record</span>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="rec-2">
+            <span class="checklist-label">
+              <strong>Xáo trộn thứ tự thời gian:</strong> Do ghép các đợt gọi API phân trang; bắt buộc sắp xếp <code>df.sort_values('timestamp').reset_index(drop=True)</code>.
+            </span>
+            <span class="checklist-badge">Record</span>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="rec-3">
+            <span class="checklist-label">
+              <strong>Khoảng trống chuỗi thời gian (Gaps in Time Series):</strong> Reindex lại theo lưới 1 giờ liên tục với <code>pd.date_range(freq='h')</code> để làm lộ các khoảng trạm ngừng hoạt động.
+            </span>
+            <span class="checklist-badge">Time-Series</span>
+          </label>
+        </div>
+
+        <!-- Relationship Level -->
+        <div class="checklist-group">
+          <div style="padding: 0.75rem 1.25rem; background-color: var(--bg-surface-elevated); font-weight: 600; font-size: 0.85rem; color: var(--accent-cyan);">
+            C. CẤP ĐỘ QUAN HỆ &amp; LOGIC NGHIỆP VỤ (RELATIONSHIP / LOGIC LEVEL)
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="rel-1">
+            <span class="checklist-label">
+              <strong>Vi phạm quy luật vật lý (PM2.5 &le; PM10):</strong> Hạt &le; 2.5 &mu;m là tập con của hạt &le; 10 &mu;m. Nếu PM2.5 &gt; PM10 + &epsilon; (sai số 1–2 &mu;g/m&sup3;), chắc chắn thiết bị lỗi &rarr; gán cả 2 thành <code>NaN</code>.
+            </span>
+            <span class="checklist-badge">Physical Law</span>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="rel-2">
+            <span class="checklist-label">
+              <strong>Ranh giới miền giá trị khí tượng:</strong> Độ ẩm tương đối 0% &le; RH &le; 100%; Tốc độ gió &ge; 0 m/s; Hướng gió trong khoảng [0&deg;, 360&deg;].
+            </span>
+            <span class="checklist-badge">Domain</span>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" class="checklist-checkbox" data-id="rel-3">
+            <span class="checklist-label">
+              <strong>Nguyên tắc vàng Outliers:</strong> Không bao giờ xóa outlier chỉ vì nó "trông xấu". Giữ lại các đợt nghịch nhiệt/pháo hoa thực tế, chỉ loại bỏ đột biến ảo 1 giờ đơn lẻ do lỗi cảm biến.
+            </span>
+            <span class="checklist-badge">Golden Rule</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 8 — TIME-SERIES ANALYSIS
+         ========================================================================= -->
+    <section class="section" id="analysis" aria-labelledby="analysisTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Temporal Exploration</div>
+          <h2 class="section-title" id="analysisTitle">Time-Series Analysis Plan</h2>
+          <p class="section-desc">4 bài toán phân tích chu kỳ thời gian đa tầng từ dữ liệu quan trắc. Các quy luật dưới đây được xác định là <em>quy luật cần kiểm chứng (pattern to investigate)</em> trong quá trình thực nghiệm, không phải kết quả đã khẳng định trước.</p>
+        </div>
+
+        <div class="temporal-grid">
+          <!-- 01 Diurnal Cycle -->
+          <div class="temporal-card">
+            <div class="temporal-header">
+              <span class="temporal-num">ANALYSIS 01</span>
+              <span class="badge badge-subtle">Hourly Aggregation</span>
+            </div>
+            <h3 class="temporal-title">Diurnal Cycle (Chu kỳ ngày đêm)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Research Question:</strong> Nồng độ PM2.5 biến động theo những khung giờ nào trong 24 giờ và có tương quan với nhịp sinh hoạt đô thị không?
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Method:</strong> Nhóm theo <code>df.groupby('hour')['pm25'].agg(['median', 'mean', 'iqr'])</code>.
+            </p>
+            <div class="investigate-box">
+              <div class="investigate-title">🔍 Pattern to investigate:</div>
+              <div class="investigate-content">
+                Sự hình thành 2 đỉnh ô nhiễm trong ngày: Đỉnh sáng (07:00–09:00) và đỉnh tối (18:00–21:00) trùng với giờ cao điểm giao thông; mức giảm đầu giờ chiều (13:00–15:00) do lớp biên khí quyển nâng cao làm pha loãng bụi.
+              </div>
+            </div>
+          </div>
+
+          <!-- 02 Day-of-Week Effect -->
+          <div class="temporal-card">
+            <div class="temporal-header">
+              <span class="temporal-num">ANALYSIS 02</span>
+              <span class="badge badge-subtle">Weekly Aggregation</span>
+            </div>
+            <h3 class="temporal-title">Day-of-Week Effect (Hiệu ứng ngày trong tuần)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Research Question:</strong> Có sự khác biệt rõ rệt về nồng độ ô nhiễm giữa các ngày làm việc (Thứ Hai – Thứ Sáu) so với ngày cuối tuần (Thứ Bảy – Chủ Nhật) không?
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Method:</strong> So sánh median và phân phối của từng thứ trong tuần (T2 đến CN).
+            </p>
+            <div class="investigate-box">
+              <div class="investigate-title">🔍 Pattern to investigate:</div>
+              <div class="investigate-content">
+                Hiệu ứng "ngày cuối tuần" (Weekend effect) — mức độ suy giảm ô nhiễm vào Thứ Bảy và Chủ Nhật do giảm lưu lượng xe máy/ô tô cá nhân và văn phòng nghỉ hoạt động.
+              </div>
+            </div>
+          </div>
+
+          <!-- 03 Seasonal / Monthly Pattern -->
+          <div class="temporal-card">
+            <div class="temporal-header">
+              <span class="temporal-num">ANALYSIS 03</span>
+              <span class="badge badge-subtle">Monthly Boxplot</span>
+            </div>
+            <h3 class="temporal-title">Seasonal / Monthly Pattern (Chu kỳ mùa vụ)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Research Question:</strong> Ô nhiễm không khí biến động giữa các tháng trong năm như thế nào dưới tác động của gió mùa Đông Bắc và mưa nhiệt đới?
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Method:</strong> Boxplot nồng độ bụi theo 12 tháng kèm vạch chuẩn an toàn QCVN.
+            </p>
+            <div class="investigate-box">
+              <div class="investigate-title">🔍 Pattern to investigate:</div>
+              <div class="investigate-content">
+                Tính mùa vụ đối lập tại miền Bắc: Mùa ô nhiễm cao điểm (Tháng 10 đến Tháng 3 năm sau - hanh khô, nghịch nhiệt giữ bụi sát mặt đất) vs Mùa trong sạch (Tháng 5 đến Tháng 8 - mưa rào dồi dào, đối lưu nhiệt mạnh).
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 Long-Term Trend & Rolling -->
+          <div class="temporal-card">
+            <div class="temporal-header">
+              <span class="temporal-num">ANALYSIS 04</span>
+              <span class="badge badge-subtle">Trend &amp; Decomposition</span>
+            </div>
+            <h3 class="temporal-title">Long-Term Trend &amp; Rolling Averages</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Research Question:</strong> Xu hướng dài hạn trong 2 năm quan trắc là tăng hay giảm, và chuỗi thời gian phân rã thành các thành phần nào?
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Method:</strong> Tính rolling average 24h &amp; 7d; phân rã <code>seasonal_decompose</code> (Trend + Seasonal + Residual).
+            </p>
+            <div class="investigate-box">
+              <div class="investigate-title">🔍 Pattern to investigate:</div>
+              <div class="investigate-content">
+                Nhận diện các đợt bùng phát ô nhiễm (pollution episodes) kéo dài nhiều ngày và xu hướng nền tổng thể sau khi đã lọc nhiễu dao động chu kỳ giờ trong ngày.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 9 — STATISTICAL INFERENCE
+         ========================================================================= -->
+    <section class="section" id="inference" aria-labelledby="inferenceTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Hypothesis Testing</div>
+          <h2 class="section-title" id="inferenceTitle">Statistical Inference</h2>
+          <p class="section-desc">Tuân thủ nguyên tắc Week 9: <em>&ldquo;Inference is a leap&rdquo;</em>. Tuyệt đối không báo cáo p-value đơn độc; bắt buộc trình bày trọn vẹn bộ ba: <strong>p-value + Kích thước hiệu ứng (Effect Size) + Khoảng tin cậy 95% (Bootstrap CI)</strong>.</p>
+        </div>
+
+        <div class="stats-cards-grid">
+          <!-- Test 01 -->
+          <div class="stats-card">
+            <div class="stats-card-header">
+              <div class="stats-test-id">HYPOTHESIS TEST 01</div>
+              <h3 class="stats-title">Mùa Đông vs Mùa Hè (Winter vs Summer)</h3>
+              <span class="stats-method-pill">Mann-Whitney U Test (Một phía)</span>
+            </div>
+
+            <div>
+              <div class="stats-item-title">Câu hỏi nghiên cứu</div>
+              <div class="stats-item-content">Nồng độ PM2.5 trong Mùa Đông (T11–T2) có thực sự cao hơn Mùa Hè (T5–T8) hay sự khác biệt chỉ là ngẫu nhiên?</div>
+            </div>
+
+            <div>
+              <div class="stats-item-title">Hệ giả thuyết &amp; Tham số</div>
+              <div class="stats-item-content">
+                &bull; H<sub>0</sub>: Trung vị Đông = Trung vị Hè<br>
+                &bull; H<sub>1</sub>: Trung vị Đông &gt; Trung vị Hè (&alpha; = 0.05)<br>
+                &bull; Kiểm tra chuẩn: Shapiro-Wilk test xác nhận vi phạm tính chuẩn &rarr; dùng Mann-Whitney U.
+              </div>
+            </div>
+
+            <div>
+              <div class="stats-item-title">Kích thước hiệu ứng &amp; Bootstrap CI</div>
+              <div class="stats-item-content">
+                Tính tương quan hạng lưỡng phân (<em>Rank-Biserial Correlation</em> r<sub>rb</sub>) và ước lượng khoảng tin cậy 95% cho chênh lệch trung vị bằng phương pháp Bootstrap resampling (1.000 lần lặp).
+              </div>
+            </div>
+
+            <div class="stats-example-box">
+              <div class="stats-example-label">📝 Illustrative example from roadmap:</div>
+              <div style="font-size: 0.82rem; font-style: italic; line-height: 1.45;">
+                &ldquo;Mann-Whitney U: Winter (Median 52.4 &mu;g/m&sup3;) vs Summer (Median 21.1 &mu;g/m&sup3;), U = 142050, p &lt; 0.001. Effect size r<sub>rb</sub> = 0.64 (lớn), 95% Bootstrap CI chênh lệch: [27.8, 34.9] &mu;g/m&sup3;.&rdquo;
+              </div>
+            </div>
+          </div>
+
+          <!-- Test 02 -->
+          <div class="stats-card">
+            <div class="stats-card-header">
+              <div class="stats-test-id">HYPOTHESIS TEST 02</div>
+              <h3 class="stats-title">Ngày làm việc vs Cuối tuần (Weekday vs Weekend)</h3>
+              <span class="stats-method-pill">Mann-Whitney U Test (Hai phía)</span>
+            </div>
+
+            <div>
+              <div class="stats-item-title">Câu hỏi nghiên cứu</div>
+              <div class="stats-item-content">Áp lực giảm lưu lượng giao thông cuối tuần có tạo ra sự khác biệt có ý nghĩa thống kê đối với nồng độ PM2.5 không?</div>
+            </div>
+
+            <div>
+              <div class="stats-item-title">Hệ giả thuyết &amp; Tham số</div>
+              <div class="stats-item-content">
+                &bull; H<sub>0</sub>: Median(Weekday) = Median(Weekend)<br>
+                &bull; H<sub>1</sub>: Median(Weekday) &ne; Median(Weekend) (&alpha; = 0.05)<br>
+                &bull; Phép kiểm hai phía (Two-sided test).
+              </div>
+            </div>
+
+            <div>
+              <div class="stats-item-title">Ý nghĩa Thống kê vs Thực tiễn</div>
+              <div class="stats-item-content">
+                Phân biệt rõ: Nếu chênh lệch quá nhỏ (&lt; 2 &mu;g/m&sup3;) nhưng p &lt; 0.05 do cỡ mẫu lớn (sample size artifact), bài báo cáo phải chỉ rõ hiệu ứng này <strong>không mang ý nghĩa thực tiễn</strong> cho sức khỏe cộng đồng.
+              </div>
+            </div>
+
+            <div class="stats-example-box">
+              <div class="stats-example-label">💡 Lưu ý học thuật:</div>
+              <div style="font-size: 0.82rem; line-height: 1.45;">
+                Bài học cốt lõi từ Slide W9: Cỡ mẫu n &gt; 10.000 giờ dễ làm p-value tiến về 0. Effect size r<sub>rb</sub> mới là thước đo quyết định mức độ quan trọng.
+              </div>
+            </div>
+          </div>
+
+          <!-- Test 03 -->
+          <div class="stats-card">
+            <div class="stats-card-header">
+              <div class="stats-test-id">HYPOTHESIS TEST 03</div>
+              <h3 class="stats-title">Nồng độ năm vs Ngưỡng QCVN (Benchmark Compliance)</h3>
+              <span class="stats-method-pill">One-sample Wilcoxon Signed-Rank Test</span>
+            </div>
+
+            <div>
+              <div class="stats-item-title">Câu hỏi nghiên cứu</div>
+              <div class="stats-item-content">Nồng độ PM2.5 trung bình năm có vượt quá Quy chuẩn kỹ thuật quốc gia QCVN 05:2023/BTNMT (ngưỡng 25 &mu;g/m&sup3;) hay không?</div>
+            </div>
+
+            <div>
+              <div class="stats-item-title">Hệ giả thuyết &amp; Tham số</div>
+              <div class="stats-item-content">
+                &bull; H<sub>0</sub>: &mu; &le; 25 &mu;g/m&sup3; (Đạt quy chuẩn an toàn)<br>
+                &bull; H<sub>1</sub>: &mu; &gt; 25 &mu;g/m&sup3; (Vượt ngưỡng cho phép)<br>
+                &bull; Kiểm định trên chuỗi nồng độ trung bình ngày (Daily averages).
+              </div>
+            </div>
+
+            <div>
+              <div class="stats-item-title">Báo cáo khoảng tin cậy</div>
+              <div class="stats-item-content">
+                Ước lượng khoảng tin cậy 95% Bootstrap của nồng độ trung bình năm và tỷ lệ phần trăm số ngày trong năm vi phạm quy chuẩn quốc gia.
+              </div>
+            </div>
+
+            <div class="stats-example-box">
+              <div class="stats-example-label">🎯 Ý nghĩa chính sách:</div>
+              <div style="font-size: 0.82rem; line-height: 1.45;">
+                Cung cấp bằng chứng định lượng phục vụ báo cáo khuyến nghị cho cơ quan quản lý đô thị và bảo vệ môi trường theo luật định.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 10 & 11 — REGRESSION & CLASSIFICATION
+         ========================================================================= -->
+    <section class="section" id="modeling" aria-labelledby="modelingTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Machine Learning &amp; Modeling</div>
+          <h2 class="section-title" id="modelingTitle">Regression &amp; Classification</h2>
+          <p class="section-desc">Mô hình hóa tác động khí tượng lên chất lượng không khí (Hồi quy OLS) và xây dựng hệ thống phân loại cảnh báo sớm ô nhiễm (Classification).</p>
+        </div>
+
+        <!-- Regression Section -->
+        <h3 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.75rem;">1. Quy trình Mô hình hóa Hồi quy OLS (Regression Workflow)</h3>
+        <div class="workflow-stepper">
+          <div class="workflow-step-pill">1. Temporal Split (2023 Train / 2024 Test)</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">2. Log Transform: log(1 + PM2.5)</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">3. OLS Model Training</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">4. LINE Diagnostics</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">5. VIF Check (&lt; 5.0)</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">6. Cook's Distance</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">7. Ridge / Lasso (L2 / L1)</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">8. Evaluate: MAE, RMSE, R&sup2;</div>
+        </div>
+
+        <!-- 4 LINE Assumptions -->
+        <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 0.5rem;">4 Giả định OLS bắt buộc (LINE Assumptions Checklist)</h4>
+        <div class="line-grid">
+          <div class="line-card">
+            <div class="line-letter">L</div>
+            <div class="line-name">Linearity</div>
+            <div class="line-tool">Residuals vs Fitted Plot</div>
+            <div class="line-desc">Mối quan hệ giữa X và Y là tuyến tính. Nếu xuất hiện đường cong parabol &rarr; thêm bậc hai hoặc log-transform.</div>
+          </div>
+
+          <div class="line-card">
+            <div class="line-letter">I</div>
+            <div class="line-name">Independence</div>
+            <div class="line-tool">Durbin-Watson Test</div>
+            <div class="line-desc">Phần dư độc lập, không tự tương quan chuỗi thời gian (d &approx; 2). Nếu d &ll; 2 &rarr; bổ sung biến trễ lag1, lag24.</div>
+          </div>
+
+          <div class="line-card">
+            <div class="line-letter">N</div>
+            <div class="line-name">Normality</div>
+            <div class="line-tool">Q-Q Plot &amp; Shapiro-Wilk</div>
+            <div class="line-desc">Phần dư có phân phối xấp xỉ chuẩn. Nếu 2 đầu lệch mạnh khỏi đường chéo &rarr; biến đổi log-target <code>np.log1p</code>.</div>
+          </div>
+
+          <div class="line-card">
+            <div class="line-letter">E</div>
+            <div class="line-name">Equal Variance</div>
+            <div class="line-tool">Breusch-Pagan Test</div>
+            <div class="line-desc">Phương sai phần dư đồng nhất (Homoscedasticity). Tránh dạng phễu (funnel) &rarr; dùng Huber Regressor hoặc Ridge.</div>
+          </div>
+        </div>
+
+        <!-- Beta interpretation callout -->
+        <div class="callout callout-amber" style="margin-top: 1.5rem;">
+          <div class="callout-title">⚠️ Ba nghĩa vụ bắt buộc khi diễn giải hệ số &beta; (Week 10 Rule):</div>
+          <div class="callout-content">
+            Mẫu câu bắt buộc: <em>&ldquo;Mỗi m/s tốc độ gió tăng thêm <strong>liên hệ với</strong> mức giảm trung bình 12% nồng độ PM2.5, <strong>trong điều kiện giữ nguyên không đổi tất cả các biến số khác trong mô hình (ceteris paribus)</strong>, trong phạm vi tốc độ gió quan sát được từ 0.2 đến 8.5 m/s.&rdquo;</em><br>
+            <strong>Tuyệt đối không dùng từ &ldquo;gây ra&rdquo; (causes) để tránh ngụy biện nhân quả.</strong>
+          </div>
+        </div>
+
+        <!-- Classification Section -->
+        <h3 style="font-size: 1.2rem; color: var(--text-primary); margin: 3rem 0 0.75rem;">2. Mô hình Phân loại Cảnh báo Ô nhiễm (Classification Workflow)</h3>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          <strong>Target:</strong> Nhãn nhị phân Y &in; {0, 1} với Y = 1 khi PM2.5 &ge; 50 &mu;g/m&sup3; (ngưỡng ô nhiễm không lành mạnh theo QCVN).
+        </p>
+
+        <div class="workflow-stepper">
+          <div class="workflow-step-pill">Baseline (DummyClassifier)</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">Logistic Regression (balanced)</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">Random Forest Classifier</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">Threshold Tuning (&darr; 0.30)</div>
+          <span class="workflow-arrow">&rarr;</span>
+          <div class="workflow-step-pill">Metrics: Recall &amp; PR-AUC</div>
+        </div>
+
+        <div class="features-imbalance-grid">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-md);">
+            <h5 style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--accent-cyan); margin-bottom: 0.5rem;">KỸ NGHỆ ĐẶC TRƯNG MIỀN (FEATURE ENGINEERING)</h5>
+            <ul style="font-size: 0.85rem; color: var(--text-secondary); padding-left: 1.2rem; line-height: 1.5;">
+              <li><code>pm25_rolling_mean_24h</code>: Quán tính ô nhiễm 24 giờ qua.</li>
+              <li><code>pm25_rolling_std_24h</code>: Biến động đột biến trong 24 giờ.</li>
+              <li><code>temp_humidity_index</code>: Chỉ số tương tác nhiệt ẩm (T &times; RH).</li>
+              <li><code>wind_stagnant</code>: Cờ cản gió lặng (wind_speed &lt; 1.0 m/s).</li>
+              <li><code>is_winter</code>: Cờ báo mùa cao điểm ô nhiễm (T11–T2).</li>
+              <li><code>hour_sin</code>, <code>hour_cos</code>: Tuần hoàn lượng giác khung giờ 24h.</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-md);">
+            <h5 style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--accent-amber); margin-bottom: 0.5rem;">BẪY ACCURACY &amp; THRESHOLD TUNING</h5>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+              Ngày ô nhiễm nặng chỉ chiếm &approx; 15–25% mẫu (mất cân bằng lớp). Đoán toàn bộ lớp 0 vẫn đạt 80% accuracy nhưng <strong>Recall = 0%</strong> (bỏ sót 100% ngày độc hại!).<br><br>
+              Chi phí bỏ sót ngày độc hại (False Negative) nguy hiểm hơn nhiều việc cảnh báo nhầm (False Positive) &rarr; <strong>Hạ ngưỡng phân loại từ 0.50 xuống 0.30</strong> để tối đa hóa Recall và đánh giá bằng đường cong PR-AUC.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4 Data Leakages to Avoid -->
+        <h4 style="font-size: 1rem; color: var(--text-primary); margin: 2rem 0 0.5rem;">Kiểm toán phòng chống 4 dạng rò rỉ dữ liệu (Data Leakage Audit)</h4>
+        <div class="leakage-grid">
+          <div class="leakage-card">
+            <div class="leakage-title">1. Temporal Leakage</div>
+            <div class="leakage-desc">Tuyệt đối không dùng <code>train_test_split</code> ngẫu nhiên. Dữ liệu bắt buộc chia theo thứ tự thời gian (Train: quá khứ, Test: tương lai). Lags chỉ tính trên dữ liệu quá khứ.</div>
+          </div>
+          <div class="leakage-card">
+            <div class="leakage-title">2. Target Leakage</div>
+            <div class="leakage-desc">Loại trừ biến AQI ra khỏi tập đặc trưng vì AQI được tính toán trực tiếp từ nồng độ PM2.5.</div>
+          </div>
+          <div class="leakage-card">
+            <div class="leakage-title">3. Train-Test Contamination</div>
+            <div class="leakage-desc">Scaler và Imputer chỉ được <code>fit</code> trên tập Train, sau đó áp dụng <code>transform</code> trên Test thông qua Scikit-Learn Pipeline.</div>
+          </div>
+          <div class="leakage-card">
+            <div class="leakage-title">4. Group Leakage</div>
+            <div class="leakage-desc">Không có bất kỳ quan sát nào của cùng một ngày hoặc một chuỗi đo thời gian xuất hiện đồng thời ở cả hai tập.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 12 — VISUALIZATION PLAN
+         ========================================================================= -->
+    <section class="section" id="visualizations" aria-labelledby="visTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Explanatory Graphics</div>
+          <h2 class="section-title" id="visTitle">Visualization Plan (FIG-01 to FIG-07)</h2>
+          <p class="section-desc">Bộ 7 biểu đồ ấn định cho đồ án theo nguyên tắc Edward Tufte và Cleveland. Tất cả biểu đồ đều được định dạng tiêu đề là câu phát biểu kết luận.</p>
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 2rem;">
+          <div class="callout-title">📌 BẢN KẾ HOẠCH TRỰC QUAN HÓA (PLANNED VISUALIZATIONS):</div>
+          <div class="callout-content">
+            Các tiêu đề dưới đây là <strong>kết luận dự kiến cần kiểm chứng</strong> theo thiết kế đồ án môn học. Các biểu đồ thực tế sẽ được vẽ trực tiếp từ dữ liệu sau khi hoàn thành quy trình Pipeline tiền xử lý.
+          </div>
+        </div>
+
+        <div class="visualizations-grid">
+          <!-- FIG-01 -->
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-code">FIG-01</span>
+              <span class="badge badge-planned">PLANNED VISUALIZATION</span>
+            </div>
+            <span class="vis-type-pill">Line Chart + Rolling Mean</span>
+            <div class="vis-title">Long-term PM2.5 Trend (Xu hướng ô nhiễm dài hạn)</div>
+            <div class="vis-conclusion-quote">
+              &ldquo;Ô nhiễm bụi mịn bùng phát thành từng đợt kéo dài từ tháng 11 đến tháng 2, vượt ngưỡng WHO gấp 4 lần&rdquo;
+            </div>
+            <div class="vis-meta-list">
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục X:</span> Thời gian (Daily)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục Y:</span> Nồng độ PM2.5 (&mu;g/m&sup3;)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Đặc tả:</span> Kèm đường trung bình trượt 7 ngày và 30 ngày để khử nhiễu ngắn hạn.</div>
+            </div>
+          </div>
+
+          <!-- FIG-02 -->
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-code">FIG-02</span>
+              <span class="badge badge-planned">PLANNED VISUALIZATION</span>
+            </div>
+            <span class="vis-type-pill">Histogram + KDE Curve</span>
+            <div class="vis-title">Distribution Shape (Hình dạng phân phối PM2.5)</div>
+            <div class="vis-conclusion-quote">
+              &ldquo;Phân phối PM2.5 lệch phải nặng với trung vị 38 &mu;g/m&sup3;, khẳng định sự cần thiết dùng Median thay vì Mean&rdquo;
+            </div>
+            <div class="vis-meta-list">
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục X:</span> Nồng độ PM2.5 (&mu;g/m&sup3;)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục Y:</span> Mật độ xác suất (Density)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Đặc tả:</span> Thể hiện Skewness &gt; 1.0 và minh họa sai lệch nếu dùng Mean.</div>
+            </div>
+          </div>
+
+          <!-- FIG-03 -->
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-code">FIG-03</span>
+              <span class="badge badge-planned">PLANNED VISUALIZATION</span>
+            </div>
+            <span class="vis-type-pill">Monthly Boxplot</span>
+            <div class="vis-title">Seasonal Variation (Biến động ô nhiễm theo tháng)</div>
+            <div class="vis-conclusion-quote">
+              &ldquo;Mùa đông ghi nhận nồng độ bụi trung vị cao gấp 2.8 lần mùa hè do hiện tượng nghịch nhiệt và gió mùa&rdquo;
+            </div>
+            <div class="vis-meta-list">
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục X:</span> 12 Tháng trong năm</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục Y:</span> Nồng độ PM2.5 (&mu;g/m&sup3;)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Đặc tả:</span> Kèm đường tham chiếu chuẩn QCVN 25 &mu;g/m&sup3;.</div>
+            </div>
+          </div>
+
+          <!-- FIG-04 -->
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-code">FIG-04</span>
+              <span class="badge badge-planned">PLANNED VISUALIZATION</span>
+            </div>
+            <span class="vis-type-pill">2D Heatmap</span>
+            <div class="vis-title">Diurnal &amp; Weekly Rush Hours (Nhiệt đồ Giờ &times; Thứ)</div>
+            <div class="vis-conclusion-quote">
+              &ldquo;Đỉnh ô nhiễm tập trung vào khung giờ 7-9h sáng các ngày làm việc, phản ánh rõ nét áp lực giao thông đô thị&rdquo;
+            </div>
+            <div class="vis-meta-list">
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục X:</span> Giờ trong ngày (0–23h)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục Y:</span> Thứ trong tuần (T2–CN)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Đặc tả:</span> Giá trị ô là Median PM2.5; sử dụng bảng màu thân thiện người mù màu (viridis).</div>
+            </div>
+          </div>
+
+          <!-- FIG-05 -->
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-code">FIG-05</span>
+              <span class="badge badge-planned">PLANNED VISUALIZATION</span>
+            </div>
+            <span class="vis-type-pill">Scatter + LOWESS Curve</span>
+            <div class="vis-title">Wind Speed vs PM2.5 (Tác động phân tán của gió)</div>
+            <div class="vis-conclusion-quote">
+              &ldquo;Tốc độ gió trên 3 m/s làm giảm 65% nồng độ bụi mịn; tình trạng lặng gió là điều kiện kích hoạt ô nhiễm tích tụ&rdquo;
+            </div>
+            <div class="vis-meta-list">
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục X:</span> Tốc độ gió (m/s)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục Y:</span> PM2.5 (&mu;g/m&sup3;)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Đặc tả:</span> Đường hồi quy phi tuyến tính cục bộ LOWESS thể hiện độ suy giảm phi tuyến.</div>
+            </div>
+          </div>
+
+          <!-- FIG-06 -->
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-code">FIG-06</span>
+              <span class="badge badge-planned">PLANNED VISUALIZATION</span>
+            </div>
+            <span class="vis-type-pill">Correlation Heatmap</span>
+            <div class="vis-title">Multi-variable Correlation Matrix (Ma trận tương quan)</div>
+            <div class="vis-conclusion-quote">
+              &ldquo;Nhiệt độ và tốc độ gió tương quan âm mạnh với PM2.5, trong khi áp suất khí quyển tương quan dương&rdquo;
+            </div>
+            <div class="vis-meta-list">
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục X/Y:</span> Ma trận các biến khí tượng &amp; ô nhiễm</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Chỉ số:</span> Hệ số tương quan Spearman &rho; (&minus;1 đến +1)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Đặc tả:</span> Mask nửa trên tam giác đối xứng để tối ưu Data-Ink ratio.</div>
+            </div>
+          </div>
+
+          <!-- FIG-07 -->
+          <div class="vis-card" style="grid-column: 1 / -1;">
+            <div class="vis-card-header">
+              <span class="vis-code">FIG-07</span>
+              <span class="badge badge-planned">PLANNED VISUALIZATION</span>
+            </div>
+            <span class="vis-type-pill">Horizontal Bar Chart (Starts at Zero)</span>
+            <div class="vis-title">Health Threshold Exceedance Rate (Tỷ lệ ngày vượt ngưỡng QCVN)</div>
+            <div class="vis-conclusion-quote">
+              &ldquo;Hơn 42% số ngày trong năm ghi nhận chất lượng không khí ở mức Không lành mạnh cho nhóm nhạy cảm trở lên&rdquo;
+            </div>
+            <div class="vis-meta-list">
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục X:</span> Tỷ lệ phần trăm số ngày (% - Bắt đầu từ 0)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Trục Y:</span> 4 Phân cấp chất lượng không khí (Tốt, Trung bình, Kém, Xấu/Nguy hại)</div>
+              <div class="vis-meta-item"><span class="vis-meta-label">Đặc tả:</span> Tuân thủ quy tắc Edward Tufte: Tuyệt đối không dùng Pie Chart, thanh Bar bắt đầu từ số 0.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 13 — ETHICS, BIAS & LIMITATIONS
+         ========================================================================= -->
+    <section class="section" id="ethics" aria-labelledby="ethicsTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Academic Integrity</div>
+          <h2 class="section-title" id="ethicsTitle">Ethics, Bias &amp; Limitations</h2>
+          <p class="section-desc">Kiểm toán định kiến dữ liệu theo chuẩn Week 12, giải trình về quy mô Big Data và tài liệu hóa trách nhiệm giải trình.</p>
+        </div>
+
+        <!-- 4 Types of Bias -->
+        <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 1rem;">Sổ tay Định kiến (Field Guide to Bias)</h3>
+        <div class="ethics-grid">
+          <div class="ethics-card">
+            <div class="ethics-card-title">1. Sensor Bias</div>
+            <div class="ethics-card-desc">
+              Cảm biến quang học đo bụi giá rẻ dễ bị lệch chuẩn khi độ ẩm cao (RH &gt; 90%). Bắt buộc sử dụng dữ liệu từ trạm BAM 1020 của Đại sứ quán Mỹ làm căn cứ hiệu chuẩn và tạo cờ cảnh báo sương mù.
+            </div>
+          </div>
+
+          <div class="ethics-card">
+            <div class="ethics-card-title">2. Spatial Representation Bias</div>
+            <div class="ethics-card-desc">
+              Trạm quan trắc thường đặt tại khu trung tâm hành chính/ngoại giao, thiếu vắng trạm đo tại khu công nghiệp ven đô. Mô hình có nguy cơ đánh giá thấp mức độ phơi nhiễm thực tế của cộng đồng dân cư ngoại thành.
+            </div>
+          </div>
+
+          <div class="ethics-card">
+            <div class="ethics-card-title">3. Survivorship / Missing-Data Bias</div>
+            <div class="ethics-card-desc">
+              Trạm đo dễ bị ngắt kết nối do mất điện trong mưa bão lớn. Xóa bỏ dòng missing vô tình xóa đi dữ liệu của những ngày thời tiết cực đoan nhất (<em>bài học máy bay Abraham Wald</em>).
+            </div>
+          </div>
+
+          <div class="ethics-card">
+            <div class="ethics-card-title">4. Missing &ne; Zero</div>
+            <div class="ethics-card-desc">
+              Tuyệt đối không bao giờ điền số 0 vào các ô dữ liệu khuyết thiếu! Không có số đo trạm không đồng nghĩa với việc không khí hoàn toàn sạch bụi mịn.
+            </div>
+          </div>
+        </div>
+
+        <!-- Documentation Standards & Big Data Justification -->
+        <div class="ethics-docs-grid">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: var(--radius-md);">
+            <h4 style="font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Hồ sơ Đạo đức &amp; Giải trình (Documentation Standards)</h4>
+            <ul class="summary-list">
+              <li><strong>Datasheet for Dataset (1 trang):</strong> Mô tả nguồn gốc OpenAQ &amp; Open-Meteo, thời gian 2023–2024, đối tượng thiếu biểu đạt, mục đích hợp lệ và mục đích bị cấm.</li>
+              <li><strong>Model Card (1 trang):</strong> Tên mô hình Early Alert Classifier v1, cấu trúc Random Forest kết hợp threshold 0.30, hiệu năng phân tầng theo mùa, giới hạn không áp dụng cho thảm họa chưa từng thấy.</li>
+              <li><strong>Tuyên bố AI trong README:</strong> Khai báo rõ ràng phần code/văn bản có AI hỗ trợ và cam kết sinh viên tự giải trình 100% logic toán học trong buổi phản biện (Viva).</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: var(--radius-md);">
+            <h4 style="font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Giải trình về Big Data (Tại sao không dùng Spark?)</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+              Bộ dữ liệu 2 năm theo giờ có quy mô &approx; 17.520 dòng (&approx; 5–20 MB). Slide Week 12 nhấn mạnh: <em>&ldquo;Bạn nhiều khả năng KHÔNG CÓ Big Data. Spark chỉ đáng dùng trên 100 GB. Cố dùng Spark cho bài toán nhỏ là over-engineering&rdquo;</em>.<br><br>
+              Pandas kết hợp định dạng lưu trữ cột <strong>Parquet</strong> xử lý toàn bộ truy vấn trong vài mili-giây, bảo đảm tốc độ tối ưu và tiết kiệm tài nguyên tính toán.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 14 — PROJECT REPOSITORY STRUCTURE
+         ========================================================================= -->
+    <section class="section" id="repository" aria-labelledby="repoTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Codebase Structure</div>
+          <h2 class="section-title" id="repoTitle">Project Repository Structure</h2>
+          <p class="section-desc">Cấu trúc cây thư mục chuẩn mực khoa học dữ liệu theo hướng dẫn INFO3020, tách bạch rõ ràng giữa dữ liệu thô, module xử lý, sổ tay phân tích và báo cáo.</p>
+        </div>
+
+        <div class="repo-card">
+          <div class="repo-card-header">
+            <div class="repo-card-dots">
+              <span class="repo-card-dot"></span>
+              <span class="repo-card-dot"></span>
+              <span class="repo-card-dot"></span>
+            </div>
+            <button class="repo-copy-btn" id="copyRepoStructureBtn" aria-label="Copy repository tree structure to clipboard">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span id="copyBtnText">Copy Tree</span>
+            </button>
+          </div>
+          <pre class="repo-code-block"><code id="repoStructureCode">air-pollution-analysis/
+├── .gitignore               # Chặn data/raw, __pycache__, .env, checkpoints
+├── README.md                # Giới thiệu đề tài, hướng dẫn tái lập, phân công, tuyên bố AI
+├── requirements.txt         # Danh sách thư viện và phiên bản cố định
+├── data/
+│   ├── raw/                 # DỮ LIỆU GỐC BẤT BIẾN (.json, .csv từ OpenAQ & Open-Meteo)
+│   │   └── metadata.json    # Thời điểm cào, schema gốc, giấy phép bản quyền
+│   ├── interim/             # Dữ liệu sau kiểm toán 6 chiều, xử lý múi giờ UTC+7
+│   └── processed/           # Dữ liệu sạch hoàn chỉnh lưu dạng Parquet (.parquet)
+├── docs/
+│   ├── data_dictionary.md   # Từ điển dữ liệu (Tên cột, Kiểu, Đơn vị, Vai trò)
+│   ├── cleaning_log.md      # Nhật ký làm sạch (Mọi quyết định đều có lý do)
+│   ├── datasheet.md         # Datasheet for Dataset chuẩn Week 12
+│   └── model_card.md        # Model Card 1 trang cho Early Alert Classifier
+├── notebooks/
+│   ├── 01_data_collection.ipynb       # Script cào API OpenAQ & Open-Meteo
+│   ├── 02_quality_audit_cleaning.ipynb# 6 Chiều chất lượng, phân loại MCAR/MNAR
+│   ├── 03_exploratory_data_analysis.ipynb # 4 Họ thống kê mô tả, Anscombe check
+│   ├── 04_statistical_inference.ipynb # 3 Kiểm định giả thuyết, Effect sizes, Bootstrap CI
+│   ├── 05_regression_modeling.ipynb   # Hồi quy OLS, LINE diagnostics, Ridge/Lasso
+│   └── 06_classification_alerts.ipynb # Random Forest, PR-AUC, Threshold tuning
+├── src/
+│   ├── __init__.py
+│   ├── data_loader.py       # Hàm nạp Parquet, kiểm tra schema
+│   ├── cleaning_pipeline.py # Scikit-Learn Pipeline đóng gói tiền xử lý
+│   └── visualizer.py        # Hàm vẽ biểu đồ phong cách Tufte/Cleveland
+├── figures/                 # Toàn bộ biểu đồ FIG-01 đến FIG-07 (PNG, 300 DPI)
+└── reports/
+    ├── midterm_report.pdf   # Báo cáo giữa kỳ EDA (8-10 trang, Tuần 8)
+    └── final_report.pdf     # Báo cáo đồ án tốt nghiệp môn học (Tuần 15)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =========================================================================
+         SECTION 15 — MILESTONES
+         ========================================================================= -->
+    <section class="section" id="milestones" aria-labelledby="milestonesTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Project Progression</div>
+          <h2 class="section-title" id="milestonesTitle">Project Milestones (M1 to M6)</h2>
+          <p class="section-desc">6 mốc đánh giá tiến độ lớn định hình thành công của đồ án trong suốt học kỳ.</p>
+        </div>
+
+        <div class="milestones-grid">
+          <!-- M1 -->
+          <div class="milestone-card milestone-highlight">
+            <div class="milestone-card-top">
+              <span class="milestone-id">MILESTONE 1</span>
+              <span class="milestone-weeks">Week 1–2</span>
+            </div>
+            <div class="milestone-name">Project Setup &amp; Data Collection</div>
+            <div class="milestone-goal">Khởi tạo repository chuẩn, thu thập dữ liệu thô từ OpenAQ &amp; Open-Meteo, xây dựng Data Dictionary 100% cột.</div>
+            <div class="milestone-criteria">Tiêu chí: Clone repo về máy mới chạy <code>pip install</code> thành công 100%; dữ liệu thô lưu bất biến.</div>
+          </div>
+
+          <!-- M2 -->
+          <div class="milestone-card">
+            <div class="milestone-card-top">
+              <span class="milestone-id">MILESTONE 2</span>
+              <span class="milestone-weeks">Week 3–5</span>
+            </div>
+            <div class="milestone-name">Data Audit &amp; Cleaning Checkpoint</div>
+            <div class="milestone-goal">Hoàn thành hồ sơ kiểm toán 6 chiều, xử lý lỗi trạm, merge dữ liệu không nổ dòng và đóng gói Pipeline Parquet.</div>
+            <div class="milestone-criteria">Tiêu chí: <code>cleaning_log.md</code> ghi nhận đầy đủ mọi phép xóa; Pipeline chạy thông suốt không rò rỉ dữ liệu.</div>
+          </div>
+
+          <!-- M3 -->
+          <div class="milestone-card milestone-highlight">
+            <div class="milestone-card-top">
+              <span class="milestone-id">MILESTONE 3</span>
+              <span class="milestone-weeks">Week 8</span>
+            </div>
+            <div class="milestone-name">Báo cáo Giữa kỳ (Midterm Presentation)</div>
+            <div class="milestone-goal">Nộp báo cáo EDA 8–10 trang, thuyết trình 7 phút + 3 phút hỏi đáp phản biện (Viva) trước giảng viên.</div>
+            <div class="milestone-criteria">Tiêu chí: Restart Kernel &amp; Run All notebook thành công; đạt rubric điểm 5 thành phần môn học.</div>
+          </div>
+
+          <!-- M4 -->
+          <div class="milestone-card">
+            <div class="milestone-card-top">
+              <span class="milestone-id">MILESTONE 4</span>
+              <span class="milestone-weeks">Week 9–11</span>
+            </div>
+            <div class="milestone-name">Phân tích Nâng cao &amp; Modeling</div>
+            <div class="milestone-goal">Kiểm định giả thuyết phi tham số (Effect size + CI), hồi quy OLS thỏa mãn LINE, phân loại cảnh báo PR-AUC.</div>
+            <div class="milestone-criteria">Tiêu chí: Đánh giá trên tập Test độc lập; diễn giải hệ số &beta; tuân thủ 3 nghĩa vụ, kiểm toán 4 loại leakage.</div>
+          </div>
+
+          <!-- M5 -->
+          <div class="milestone-card">
+            <div class="milestone-card-top">
+              <span class="milestone-id">MILESTONE 5</span>
+              <span class="milestone-weeks">Week 12–14</span>
+            </div>
+            <div class="milestone-name">Ethics, Mentoring &amp; Storytelling</div>
+            <div class="milestone-goal">Kiểm toán Bias, viết Datasheet &amp; Model Card, tiếp thu góp ý cố vấn của ThS. Phạm Ngọc Đông, soạn thảo báo cáo SCQA.</div>
+            <div class="milestone-criteria">Tiêu chí: Hoàn thành 100% checklist đạo đức; giải quyết tất cả các điểm nghi vấn của giảng viên.</div>
+          </div>
+
+          <!-- M6 -->
+          <div class="milestone-card milestone-highlight">
+            <div class="milestone-card-top">
+              <span class="milestone-id">MILESTONE 6</span>
+              <span class="milestone-weeks">Week 15</span>
+            </div>
+            <div class="milestone-name">Final Defense (Bảo vệ Đồ án Cuối kỳ)</div>
+            <div class="milestone-goal">Thuyết trình bảo vệ trước Hội đồng chấm thi, giải trình từng dòng code trong phần vấn đáp cá nhân (Oral Viva).</div>
+            <div class="milestone-criteria">Tiêu chí: Vượt qua toàn diện phản biện cá nhân; repo GitHub hoàn chỉnh, đóng gói bàn giao đồ án.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="footer-title">INFO3020 &mdash; Introduction to Data Science</div>
+        <div class="footer-sub">Time-Series Air Pollution Analysis &bull; Academic Project Roadmap</div>
+      </div>
+      <div class="footer-right">
+        <span class="footer-badge">Single Source of Truth: ROADMAP_INFO3020_Air_Pollution.md</span>
+        <span class="footer-badge">Deployed with GitHub Pages</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript -->
+  <script src="./script.js"></script>
+</body>
+</html>
